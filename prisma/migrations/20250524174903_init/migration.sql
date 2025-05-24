@@ -15,7 +15,7 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "contact_numbar" TEXT,
+    "phone" INTEGER,
     "photo" TEXT,
     "password" TEXT NOT NULL,
     "adress" TEXT NOT NULL,

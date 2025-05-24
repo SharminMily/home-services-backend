@@ -1,3 +1,4 @@
+
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -12,7 +13,7 @@ model User {
   id          String   @id @default(uuid())
   name        String
   email       String   @unique
-  contact_numbar       String?
+  phone      Int?
   photo        String?   
   password    String
   // needPasswordChange Boolean @default(true)
