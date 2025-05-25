@@ -18,9 +18,9 @@ model User {
   password    String
   // needPasswordChange Boolean @default(true)
   adress       String   
-  gender      Gender 
+  gender      Gender? 
   role        UserRole   @default(User) 
-  status      UserStatus
+  status      UserStatus @default(Active)
   bookings    Booking[]
   reviews     Review[]
   service_provider      ServiceProvider[] 
@@ -117,13 +117,13 @@ enum UserStatus {
 }
 
 enum Gender {
-  male
-  female 
+  Male
+  Female 
 }
 
  enum Status {
  Pending
- accepted
- complated
- cancelled
+ Accepted
+ Complated
+ Cancelled
  } 

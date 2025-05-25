@@ -207,8 +207,8 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 exports.Gender = exports.$Enums.Gender = {
-  male: 'male',
-  female: 'female'
+  Male: 'Male',
+  Female: 'Female'
 };
 
 exports.UserRole = exports.$Enums.UserRole = {
@@ -225,9 +225,9 @@ exports.UserStatus = exports.$Enums.UserStatus = {
 
 exports.Status = exports.$Enums.Status = {
   Pending: 'Pending',
-  accepted: 'accepted',
-  complated: 'complated',
-  cancelled: 'cancelled'
+  Accepted: 'Accepted',
+  Complated: 'Complated',
+  Cancelled: 'Cancelled'
 };
 
 exports.Prisma.ModelName = {
