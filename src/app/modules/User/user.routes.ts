@@ -9,4 +9,4 @@ router.patch('/:id', UserController.updateIdFromDB)
 router.delete('/:id', UserController.deleteFromDB)
 router.get('/', UserController.getAllUserFromDB)
 
-export const UserRouter = router
+export const UserRoute = router
