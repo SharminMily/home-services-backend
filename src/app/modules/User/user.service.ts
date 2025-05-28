@@ -8,9 +8,6 @@ const createUser = async (payload: TUser): Promise<TUser> => {
 
   const hashPassword: string = await  bcrypt.hash(payload.password, 12)
   console.log(hashPassword)
-//   if (!payload.name || !payload.email || !payload.phone || !payload.password || !payload.adress || !payload.gender || !payload.status) {
-//     throw new AppError(httpStatus.BAD_REQUEST, "All required fields must be provided.");
-//   }
 
   const existingUser = await prisma.user.findUnique({
     where: { email: payload.email },
