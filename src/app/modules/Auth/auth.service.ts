@@ -27,8 +27,6 @@ const loginUser =  async (payload: {
   if (!isCorrectPassword) {
     throw new AppError(403, 'You have given a wrong password!');
   }
-  
-
 
 }
 
