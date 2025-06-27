@@ -1,4 +1,5 @@
-import { UserStatus } from "../../../generated/prisma";
+
+import { UserStatus } from "../../../../generated/prisma";
 import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
 import bcrypt from 'bcrypt';

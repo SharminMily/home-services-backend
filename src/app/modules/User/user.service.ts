@@ -16,7 +16,6 @@ const createUser = async (payload: TUser): Promise<TUser> => {
   if (existingUser) {
     throw new AppError(httpStatus.CONFLICT, "Email already exists.");
   }
-
   const userData = {
     name: payload.name,
     email: payload.email,
@@ -104,6 +103,5 @@ export const UserServices = {
   getAllUserFromDB,
   getByIdFromDB,
   updateIntoDB,
-  deleteFromDB
-  
+  deleteFromDB  
 };
