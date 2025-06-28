@@ -52,7 +52,7 @@ const updateIntoDB = async (
   id: string,
   data: TUserUpdate
 ): Promise<TUserUpdate> => {
-  const existingCustomer = await prisma.user.findUnique({
+  const existingCustomer = await prisma.user.findUniqueOrThrow({
     where: { id },
   });
 
@@ -73,6 +73,7 @@ const updateIntoDB = async (
   return rest as TUserUpdate;
 };
 
+//hard delete or soft delete
 //delete customer from database
 const deleteFromDB = async (id: string): Promise<TUser | null> => {
   if (!id) {
