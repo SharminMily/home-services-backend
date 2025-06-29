@@ -12,8 +12,7 @@ const loginUser =  async (payload: {
     where: {
       email: payload.email,
       status: UserStatus.Active
-    },
-    
+    },    
   });
 
   if (!userData) {
@@ -28,7 +27,6 @@ const loginUser =  async (payload: {
   if (!isCorrectPassword) {
     throw new AppError(403, 'You have given a wrong password!');
   }
-
 }
 
 export const AuthService = {
