@@ -43,7 +43,7 @@ const refreshToken = jwtHelpers.generateToken({
     email: userData.email,
     role:userData.role
   },
-"abcdefghijkl",
+"abcdefghijkl78999",
 "1d"
 
 );
@@ -56,7 +56,8 @@ return{
 }
 
 const refreshToken = async(token: string) => {
-  console.log("refreshToken", token)
+  const decodeData = jwt.verify(token, "abcdefghijkl78999")
+  console.log(decodeData )
 }
 
 
