@@ -5,7 +5,6 @@ import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
 import bcrypt from 'bcrypt';
-import jwt, { Secret } from "jsonwebtoken" 
 import config from "../../../config";
 const loginUser =  async (payload: {
     email: string,
@@ -46,9 +45,7 @@ const refreshToken = jwtHelpers.generateToken({
   },
     config.jwt.refresh_token_secret as string,
     config.jwt.refresh_token_expires_in as string
-
 );
-
 
 return{
   accessToken,
