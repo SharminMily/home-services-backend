@@ -3,7 +3,9 @@ import { CategoryController } from "./category.controller";
 
 const router = express.Router();
 
+router.get("/:id", CategoryController.getByIdFromDB)
 router.post("/", CategoryController.createCategory)
+router.get("/", CategoryController.getAllCategory)
 // router.get("/")
 
 export const CategoryRouter = router
