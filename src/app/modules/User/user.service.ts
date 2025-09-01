@@ -2,9 +2,9 @@ import httpStatus from "http-status";
 import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
 import { TUser, TUserUpdate } from "./user.interface";
-
 import  bcrypt from "bcrypt"
 import { Gender } from "../../../../generated/prisma";
+
 const createUser = async (payload: TUser): Promise<TUser> => {
 
   const hashPassword: string = await  bcrypt.hash(payload.password, 12)
@@ -20,10 +20,10 @@ const createUser = async (payload: TUser): Promise<TUser> => {
   const userData = {
     name: payload.name,
     email: payload.email,
-    phone: payload.phone ? Number(payload.phone) : null,    
-    password: hashPassword,
     adress: payload.adress,
     photo: payload.photo ,
+    password: hashPassword,
+    phone: payload.phone ? Number(payload.phone) : null,    
     gender: payload.gender as Gender,   
   };
   const result = await prisma.user.create({ data: userData });
