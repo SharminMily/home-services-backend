@@ -40,9 +40,21 @@ const getByIdFromDB = catchAsynce(async(req, res)=> {
   });
 })
 
+const deleteFromDB = catchAsynce(async (req, res) => {
+  const { id } = req.params;
+  const result = await CategoryServices.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "category deleted successfully",
+    data: [],
+  });
+});
+
 
 export const CategoryController = {
     createCategory,
     getAllCategory,
-    getByIdFromDB
+    getByIdFromDB,
+    deleteFromDB
 }

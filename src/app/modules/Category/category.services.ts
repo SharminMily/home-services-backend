@@ -15,8 +15,20 @@ const getAllCategory = async () => {
 }
 
 
-//get single   from database
+//get single id from database
 const getByIdFromDB = async (id: string): Promise<TCategory | null> => {
+  const result = await prisma.categories.findUnique({
+    where: {
+     id: id,
+    },
+  });
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, "CTEGORY not found");
+  }
+  return result;
+};
+
+const deleteByIdFromDB = async (id: string): Promise<TCategory | null> => {
   const result = await prisma.categories.findUnique({
     where: {
      id: id,
@@ -31,5 +43,6 @@ const getByIdFromDB = async (id: string): Promise<TCategory | null> => {
 export const CategoryServices = {
     createCategory,
     getAllCategory,
-    getByIdFromDB
+    getByIdFromDB,
+    deleteByIdFromDB
 }
