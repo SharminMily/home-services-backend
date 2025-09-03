@@ -9,99 +9,98 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(uuid())
-  name        String
-  email       String   @unique
-  phone      Int?
-  photo        String?   
-  password    String
+  id               String            @id @default(uuid())
+  name             String
+  email            String            @unique
+  phone            Int?
+  photo            String?
+  password         String
   // needPasswordChange Boolean @default(true)
-  adress       String   
-  gender      Gender? 
-  role        UserRole   @default(User) 
-  status      UserStatus @default(Active)
-  bookings    Booking[]
-  reviews     Review[]
-  service_provider      ServiceProvider[] 
-  createdAt   DateTime @default(now())
-  updateAt   DateTime @default(now())
+  adress           String
+  gender           Gender?
+  role             UserRole          @default(User)
+  status           UserStatus        @default(Active)
+  bookings         Booking[]
+  reviews          Review[]
+  service_provider ServiceProvider[]
+  createdAt        DateTime          @default(now())
+  updateAt         DateTime          @default(now())
 }
 
 model Service {
-  id          String    @id @default(uuid())
-  title       String
-  description String
-  categoriesId String
-  category    Categories @relation(fields: [categoriesId], references: [id])
-  image       String
-  price       Int
-  document    String?
-  // provider    Provider  @relation(fields: [providerId], references: [id])
- service_provider  ServiceProvider[]
-  booking Booking[]
-  // location Available_locations[]
-  reviews     Review[]
-  createdAt   DateTime  @default(now())
+  id               String            @id @default(uuid())
+  title            String
+  description      String
+  categoriesId     String
+  category         Categories        @relation(fields: [categoriesId], references: [id])
+  image            String
+  price            Int
+  document         String?
+  locationId   String
+  location     AvailableLocation @relation(fields: [locationId], references: [id]) 
+  service_provider ServiceProvider[]
+  booking          Booking[]  
+  reviews          Review[]
+  createdAt        DateTime          @default(now())
 }
 
-
 model ServiceProvider {
-  id         String    @id @default(uuid())
-  userId     String    @unique
-  user       User      @relation(fields: [userId], references: [id])
+  id         String            @id @default(uuid())
+  userId     String            @unique
+  user       User              @relation(fields: [userId], references: [id])
   services   Service[]
   bookings   Booking[]
-  rating     Int       @default(0)
+  rating     Int               @default(0)
   documents  String?
   locationId String
   location   AvailableLocation @relation(fields: [locationId], references: [id])
-  createdAt  DateTime  @default(now())
+  createdAt  DateTime          @default(now())
 }
 
-model Categories{
-    id         String    @id @default(uuid())
-    name  String
-    popular Boolean
-    featured Boolean
-    latest Boolean
-    service    Service[]
+model Categories {
+  id       String    @id @default(uuid())
+  name     String
+  popular  Boolean?  @default(false)
+  featured Boolean?  @default(false)
+  latest   Boolean?  @default(false)
+  service  Service[]
 }
 
 model Booking {
-id          String    @id @default(uuid())
+  id          String          @id @default(uuid())
   userId      String
-  user        User      @relation(fields: [userId], references: [id])
+  user        User            @relation(fields: [userId], references: [id])
   serviceId   String
-  service     Service   @relation(fields: [serviceId], references: [id])
-  providerId   String
- provider    ServiceProvider   @relation(fields: [providerId ], references: [id])
-  status      Status    @default(Pending) 
+  service     Service         @relation(fields: [serviceId], references: [id])
+  providerId  String
+  provider    ServiceProvider @relation(fields: [providerId], references: [id])
+  status      Status          @default(Pending)
   scheduledAt DateTime
-  createdAt   DateTime  @default(now())
+  createdAt   DateTime        @default(now())
 }
 
 model Review {
-  id          String    @id @default(uuid())
-  rating      Int
-  comment     String?
-userId     String
-  user       User     @relation(fields: [userId], references: [id])
-  serviceId  String
-  service    Service  @relation(fields: [serviceId], references: [id])
-  createdAt   DateTime  @default(now())
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  serviceId String
+  service   Service  @relation(fields: [serviceId], references: [id])
+  createdAt DateTime @default(now())
 }
 
 model AvailableLocation {
-  id        String   @id @default(uuid())
- division   String
- district String
- area    String
-  lat String
-  lon Float
-  address   String
+  id               String            @id @default(uuid())
+  division         String
+  district         String
+  area             String
+  lat              String
+  lon              Float
+  address          String
+  service Service[]
   service_provider ServiceProvider[]
 }
-
 
 enum UserRole {
   Admin
@@ -112,17 +111,18 @@ enum UserRole {
 enum UserStatus {
   Active
   Blocked
-  Deleted  
+  Deleted
 }
 
 enum Gender {
   Male
-  Female 
+  Female
+  Other
 }
 
- enum Status {
- Pending
- Accepted
- Complated
- Cancelled
- } 
+enum Status {
+  Pending
+  Accepted
+  Complated
+  Cancelled
+}

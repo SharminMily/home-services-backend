@@ -5,7 +5,7 @@ import { ServiceServices } from "./service.services";
 
 const createService = catchAsynce(async(req, res)=> {
   console.log(req.body)
-  const result = await ServiceServices.createService()
+  const result = await ServiceServices.createService(req.body)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
