@@ -139,19 +139,20 @@ exports.Prisma.ServiceScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  categoriesId: 'categoriesId',
+  category_id: 'category_id',
   image: 'image',
   price: 'price',
   document: 'document',
+  location_id: 'location_id',
   createdAt: 'createdAt'
 };
 
 exports.Prisma.ServiceProviderScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
+  user_id: 'user_id',
   rating: 'rating',
   documents: 'documents',
-  locationId: 'locationId',
+  location_id: 'location_id',
   createdAt: 'createdAt'
 };
 
@@ -165,9 +166,9 @@ exports.Prisma.CategoriesScalarFieldEnum = {
 
 exports.Prisma.BookingScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
-  serviceId: 'serviceId',
-  providerId: 'providerId',
+  user_id: 'user_id',
+  service_id: 'service_id',
+  provider_id: 'provider_id',
   status: 'status',
   scheduledAt: 'scheduledAt',
   createdAt: 'createdAt'
@@ -177,8 +178,8 @@ exports.Prisma.ReviewScalarFieldEnum = {
   id: 'id',
   rating: 'rating',
   comment: 'comment',
-  userId: 'userId',
-  serviceId: 'serviceId',
+  user_id: 'user_id',
+  service_id: 'service_id',
   createdAt: 'createdAt'
 };
 
@@ -208,7 +209,8 @@ exports.Prisma.NullsOrder = {
 };
 exports.Gender = exports.$Enums.Gender = {
   Male: 'Male',
-  Female: 'Female'
+  Female: 'Female',
+  Other: 'Other'
 };
 
 exports.UserRole = exports.$Enums.UserRole = {

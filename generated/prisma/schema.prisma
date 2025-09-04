@@ -15,7 +15,7 @@ model User {
   phone            Int?
   photo            String?
   password         String
-  // needPasswordChange Boolean @default(true)
+  // needPasswordChange Boolean? @default(true)
   adress           String
   gender           Gender?
   role             UserRole          @default(User)
@@ -31,63 +31,63 @@ model Service {
   id               String            @id @default(uuid())
   title            String
   description      String
-  categoriesId     String
-  category         Categories        @relation(fields: [categoriesId], references: [id])
+  category_id      String
+  category         Categories        @relation(fields: [category_id], references: [id])
   image            String
   price            Int
   document         String?
-  // provider    Provider  @relation(fields: [providerId], references: [id])
+  location_id      String
+  location         AvailableLocation @relation(fields: [location_id], references: [id])
   service_provider ServiceProvider[]
   booking          Booking[]
-  // location Available_locations[]
   reviews          Review[]
   createdAt        DateTime          @default(now())
 }
 
 model ServiceProvider {
-  id         String            @id @default(uuid())
-  userId     String            @unique
-  user       User              @relation(fields: [userId], references: [id])
-  services   Service[]
-  bookings   Booking[]
-  rating     Int               @default(0)
-  documents  String?
-  locationId String
-  location   AvailableLocation @relation(fields: [locationId], references: [id])
-  createdAt  DateTime          @default(now())
+  id          String            @id @default(uuid())
+  user_id     String            @unique
+  user        User              @relation(fields: [user_id], references: [id])
+  services    Service[]
+  bookings    Booking[]
+  rating      Int               @default(0)
+  documents   String?
+  location_id String
+  location    AvailableLocation @relation(fields: [location_id], references: [id])
+  createdAt   DateTime          @default(now())
 }
 
 model Categories {
   id       String    @id @default(uuid())
   name     String
-  popular  Boolean
-  featured Boolean
-  latest   Boolean
+  popular  Boolean?  @default(false)
+  featured Boolean?  @default(false)
+  latest   Boolean?  @default(false)
   service  Service[]
 }
 
 model Booking {
   id          String          @id @default(uuid())
-  userId      String
-  user        User            @relation(fields: [userId], references: [id])
-  serviceId   String
-  service     Service         @relation(fields: [serviceId], references: [id])
-  providerId  String
-  provider    ServiceProvider @relation(fields: [providerId], references: [id])
+  user_id     String
+  user        User            @relation(fields: [user_id], references: [id])
+  service_id  String
+  service     Service         @relation(fields: [service_id], references: [id])
+  provider_id String
+  provider    ServiceProvider @relation(fields: [provider_id], references: [id])
   status      Status          @default(Pending)
   scheduledAt DateTime
   createdAt   DateTime        @default(now())
 }
 
 model Review {
-  id        String   @id @default(uuid())
-  rating    Int
-  comment   String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  serviceId String
-  service   Service  @relation(fields: [serviceId], references: [id])
-  createdAt DateTime @default(now())
+  id         String   @id @default(uuid())
+  rating     Int
+  comment    String?
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  service_id String
+  service    Service  @relation(fields: [service_id], references: [id])
+  createdAt  DateTime @default(now())
 }
 
 model AvailableLocation {
@@ -98,6 +98,7 @@ model AvailableLocation {
   lat              String
   lon              Float
   address          String
+  service          Service[]
   service_provider ServiceProvider[]
 }
 
@@ -116,6 +117,7 @@ enum UserStatus {
 enum Gender {
   Male
   Female
+  Other
 }
 
 enum Status {

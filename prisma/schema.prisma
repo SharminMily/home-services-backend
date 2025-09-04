@@ -15,7 +15,7 @@ model User {
   phone            Int?
   photo            String?
   password         String
-  // needPasswordChange Boolean @default(true)
+  // needPasswordChange Boolean? @default(true)
   adress           String
   gender           Gender?
   role             UserRole          @default(User)
@@ -31,13 +31,13 @@ model Service {
   id               String            @id @default(uuid())
   title            String
   description      String
-  categoriesId     String
-  category         Categories        @relation(fields: [categoriesId], references: [id])
+  category_id     String
+  category         Categories        @relation(fields: [category_id], references: [id])
   image            String
   price            Int
   document         String?
-  locationId   String
-  location     AvailableLocation @relation(fields: [locationId], references: [id]) 
+  location_id   String
+  location     AvailableLocation @relation(fields: [location_id], references: [id]) 
   service_provider ServiceProvider[]
   booking          Booking[]  
   reviews          Review[]
@@ -46,14 +46,14 @@ model Service {
 
 model ServiceProvider {
   id         String            @id @default(uuid())
-  userId     String            @unique
-  user       User              @relation(fields: [userId], references: [id])
+  user_id     String            @unique
+  user       User              @relation(fields: [user_id], references: [id])
   services   Service[]
   bookings   Booking[]
   rating     Int               @default(0)
   documents  String?
-  locationId String
-  location   AvailableLocation @relation(fields: [locationId], references: [id])
+  location_id String
+  location   AvailableLocation @relation(fields: [location_id], references: [id])
   createdAt  DateTime          @default(now())
 }
 
@@ -68,12 +68,12 @@ model Categories {
 
 model Booking {
   id          String          @id @default(uuid())
-  userId      String
-  user        User            @relation(fields: [userId], references: [id])
-  serviceId   String
-  service     Service         @relation(fields: [serviceId], references: [id])
-  providerId  String
-  provider    ServiceProvider @relation(fields: [providerId], references: [id])
+  user_id      String
+  user        User            @relation(fields: [user_id], references: [id])
+  service_id   String
+  service     Service         @relation(fields: [service_id], references: [id])
+  provider_id  String
+  provider    ServiceProvider @relation(fields: [provider_id], references: [id])
   status      Status          @default(Pending)
   scheduledAt DateTime
   createdAt   DateTime        @default(now())
@@ -83,10 +83,10 @@ model Review {
   id        String   @id @default(uuid())
   rating    Int
   comment   String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  serviceId String
-  service   Service  @relation(fields: [serviceId], references: [id])
+  user_id    String
+  user      User     @relation(fields: [user_id], references: [id])
+  service_id String
+  service   Service  @relation(fields: [service_id], references: [id])
   createdAt DateTime @default(now())
 }
 
