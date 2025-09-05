@@ -6,11 +6,15 @@ const createService = async(payload: any) => {
       data: {
       title: payload.title,
       description: payload.description,
-      category_id: payload.category_id, // শুধু FK
-      location_id: payload.location_id, // শুধু FK
+      category_id: payload.category_id, 
+      location_id: payload.location_id, 
       image: payload.image,
       price: payload.price,
       document: payload.document ?? null,
+    },
+    include: {
+      category: true,  
+      location: true,   
     },
     });
 
