@@ -39,7 +39,6 @@ const serviceIdFromDb= async(id: string) => {
 };
 
 
-
 const deleteIdFromDb= async(id: string) => { 
  const result = await prisma.service.findUnique({
   where: {
@@ -51,9 +50,43 @@ const deleteIdFromDb= async(id: string) => {
 };
 
 
+const updateServiceFromDb = async (id: string, payload: any) => {
+  const result = await prisma.service.update({
+    where: {
+      id: id,
+    },
+    data: {
+      title: payload.title,
+      description: payload.description,
+      category_id: payload.category_id,
+      location_id: payload.location_id,
+      image: payload.image,
+      price: payload.price,
+      document: payload.document ?? null,
+    },
+    // include: {
+    //   category: {
+    //     select: {
+    //       id: true,
+    //       title: true,
+    //     },
+    //   },
+    //   location: {
+    //     select: {
+    //       area: true,
+    //     },
+    //   },
+    // },
+  });
+
+  return result;
+};
+
+
 export const ServiceServices = {
     createService,
     allServiceFromDb,
     serviceIdFromDb,
-    deleteIdFromDb
+    deleteIdFromDb,
+    updateServiceFromDb
 }
