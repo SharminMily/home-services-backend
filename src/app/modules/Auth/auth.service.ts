@@ -6,6 +6,7 @@ import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
 import bcrypt from 'bcrypt';
 import config from "../../../config";
+
 const loginUser =  async (payload: {
     email: string,
     password: string
