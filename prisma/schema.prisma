@@ -18,8 +18,8 @@ model User {
   // needPasswordChange Boolean? @default(true)
   adress           String
   gender           Gender?
-  role             UserRole          @default(User)
-  status           UserStatus        @default(Active)
+  role             UserRole          @default(user)
+  status           UserStatus        @default(active)
   bookings         Booking[]
   reviews          Review[]
   service_provider ServiceProvider[]
@@ -74,7 +74,7 @@ model Booking {
   service     Service         @relation(fields: [service_id], references: [id])
   provider_id  String
   provider    ServiceProvider @relation(fields: [provider_id], references: [id])
-  status      Status          @default(Pending)
+  status      Status          @default(pending)
   scheduledAt DateTime
   createdAt   DateTime        @default(now())
 }
@@ -103,26 +103,27 @@ model AvailableLocation {
 }
 
 enum UserRole {
-  Admin
-  User
-  Services_provider
+  admin
+  user
+  services_provider
 }
 
 enum UserStatus {
-  Active
-  Blocked
-  Deleted
+  active
+  blocked
+  deleted
 }
 
 enum Gender {
-  Male
-  Female
+  male
+  female
   Other
 }
 
 enum Status {
-  Pending
-  Accepted
-  Complated
-  Cancelled
+  pending
+  accepted
+  complated
+  cancelled
+  failed
 }

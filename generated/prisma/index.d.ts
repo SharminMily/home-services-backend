@@ -54,26 +54,26 @@ export type AvailableLocation = $Result.DefaultSelection<Prisma.$AvailableLocati
  */
 export namespace $Enums {
   export const UserRole: {
-  Admin: 'Admin',
-  User: 'User',
-  Services_provider: 'Services_provider'
+  admin: 'admin',
+  user: 'user',
+  services_provider: 'services_provider'
 };
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
 export const UserStatus: {
-  Active: 'Active',
-  Blocked: 'Blocked',
-  Deleted: 'Deleted'
+  active: 'active',
+  blocked: 'blocked',
+  deleted: 'deleted'
 };
 
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
 
 
 export const Gender: {
-  Male: 'Male',
-  Female: 'Female',
+  male: 'male',
+  female: 'female',
   Other: 'Other'
 };
 
@@ -81,10 +81,11 @@ export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
 export const Status: {
-  Pending: 'Pending',
-  Accepted: 'Accepted',
-  Complated: 'Complated',
-  Cancelled: 'Cancelled'
+  pending: 'pending',
+  accepted: 'accepted',
+  complated: 'complated',
+  cancelled: 'cancelled',
+  failed: 'failed'
 };
 
 export type Status = (typeof Status)[keyof typeof Status]

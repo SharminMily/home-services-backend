@@ -208,28 +208,29 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 exports.Gender = exports.$Enums.Gender = {
-  Male: 'Male',
-  Female: 'Female',
+  male: 'male',
+  female: 'female',
   Other: 'Other'
 };
 
 exports.UserRole = exports.$Enums.UserRole = {
-  Admin: 'Admin',
-  User: 'User',
-  Services_provider: 'Services_provider'
+  admin: 'admin',
+  user: 'user',
+  services_provider: 'services_provider'
 };
 
 exports.UserStatus = exports.$Enums.UserStatus = {
-  Active: 'Active',
-  Blocked: 'Blocked',
-  Deleted: 'Deleted'
+  active: 'active',
+  blocked: 'blocked',
+  deleted: 'deleted'
 };
 
 exports.Status = exports.$Enums.Status = {
-  Pending: 'Pending',
-  Accepted: 'Accepted',
-  Complated: 'Complated',
-  Cancelled: 'Cancelled'
+  pending: 'pending',
+  accepted: 'accepted',
+  complated: 'complated',
+  cancelled: 'cancelled',
+  failed: 'failed'
 };
 
 exports.Prisma.ModelName = {

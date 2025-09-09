@@ -1,14 +1,14 @@
 -- CreateEnum
-CREATE TYPE "UserRole" AS ENUM ('Admin', 'User', 'Services_provider');
+CREATE TYPE "UserRole" AS ENUM ('admin', 'user', 'services_provider');
 
 -- CreateEnum
-CREATE TYPE "UserStatus" AS ENUM ('Active', 'Blocked', 'Deleted');
+CREATE TYPE "UserStatus" AS ENUM ('active', 'blocked', 'deleted');
 
 -- CreateEnum
-CREATE TYPE "Gender" AS ENUM ('male', 'female');
+CREATE TYPE "Gender" AS ENUM ('male', 'female', 'Other');
 
 -- CreateEnum
-CREATE TYPE "Status" AS ENUM ('Pending', 'accepted', 'complated', 'cancelled');
+CREATE TYPE "Status" AS ENUM ('pending', 'accepted', 'complated', 'cancelled', 'failed');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -19,9 +19,9 @@ CREATE TABLE "User" (
     "photo" TEXT,
     "password" TEXT NOT NULL,
     "adress" TEXT NOT NULL,
-    "gender" "Gender" NOT NULL,
-    "role" "UserRole" NOT NULL DEFAULT 'User',
-    "status" "UserStatus" NOT NULL,
+    "gender" "Gender",
+    "role" "UserRole" NOT NULL DEFAULT 'user',
+    "status" "UserStatus" NOT NULL DEFAULT 'active',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -33,10 +33,11 @@ CREATE TABLE "Service" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "categoriesId" TEXT NOT NULL,
+    "category_id" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
     "document" TEXT,
+    "location_id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Service_pkey" PRIMARY KEY ("id")
@@ -45,10 +46,10 @@ CREATE TABLE "Service" (
 -- CreateTable
 CREATE TABLE "ServiceProvider" (
     "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
+    "user_id" TEXT NOT NULL,
     "rating" INTEGER NOT NULL DEFAULT 0,
     "documents" TEXT,
-    "locationId" TEXT NOT NULL,
+    "location_id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "ServiceProvider_pkey" PRIMARY KEY ("id")
@@ -58,9 +59,9 @@ CREATE TABLE "ServiceProvider" (
 CREATE TABLE "Categories" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "popular" BOOLEAN NOT NULL,
-    "featured" BOOLEAN NOT NULL,
-    "latest" BOOLEAN NOT NULL,
+    "popular" BOOLEAN DEFAULT false,
+    "featured" BOOLEAN DEFAULT false,
+    "latest" BOOLEAN DEFAULT false,
 
     CONSTRAINT "Categories_pkey" PRIMARY KEY ("id")
 );
@@ -68,10 +69,10 @@ CREATE TABLE "Categories" (
 -- CreateTable
 CREATE TABLE "Booking" (
     "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
-    "serviceId" TEXT NOT NULL,
-    "providerId" TEXT NOT NULL,
-    "status" "Status" NOT NULL DEFAULT 'Pending',
+    "user_id" TEXT NOT NULL,
+    "service_id" TEXT NOT NULL,
+    "provider_id" TEXT NOT NULL,
+    "status" "Status" NOT NULL DEFAULT 'pending',
     "scheduledAt" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -83,8 +84,8 @@ CREATE TABLE "Review" (
     "id" TEXT NOT NULL,
     "rating" INTEGER NOT NULL,
     "comment" TEXT,
-    "userId" TEXT NOT NULL,
-    "serviceId" TEXT NOT NULL,
+    "user_id" TEXT NOT NULL,
+    "service_id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Review_pkey" PRIMARY KEY ("id")
@@ -115,34 +116,37 @@ CREATE TABLE "_ServiceToServiceProvider" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "ServiceProvider_userId_key" ON "ServiceProvider"("userId");
+CREATE UNIQUE INDEX "ServiceProvider_user_id_key" ON "ServiceProvider"("user_id");
 
 -- CreateIndex
 CREATE INDEX "_ServiceToServiceProvider_B_index" ON "_ServiceToServiceProvider"("B");
 
 -- AddForeignKey
-ALTER TABLE "Service" ADD CONSTRAINT "Service_categoriesId_fkey" FOREIGN KEY ("categoriesId") REFERENCES "Categories"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Service" ADD CONSTRAINT "Service_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "Categories"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ServiceProvider" ADD CONSTRAINT "ServiceProvider_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Service" ADD CONSTRAINT "Service_location_id_fkey" FOREIGN KEY ("location_id") REFERENCES "AvailableLocation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ServiceProvider" ADD CONSTRAINT "ServiceProvider_locationId_fkey" FOREIGN KEY ("locationId") REFERENCES "AvailableLocation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ServiceProvider" ADD CONSTRAINT "ServiceProvider_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Booking" ADD CONSTRAINT "Booking_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ServiceProvider" ADD CONSTRAINT "ServiceProvider_location_id_fkey" FOREIGN KEY ("location_id") REFERENCES "AvailableLocation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Booking" ADD CONSTRAINT "Booking_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Booking" ADD CONSTRAINT "Booking_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Booking" ADD CONSTRAINT "Booking_providerId_fkey" FOREIGN KEY ("providerId") REFERENCES "ServiceProvider"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Booking" ADD CONSTRAINT "Booking_service_id_fkey" FOREIGN KEY ("service_id") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Review" ADD CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Booking" ADD CONSTRAINT "Booking_provider_id_fkey" FOREIGN KEY ("provider_id") REFERENCES "ServiceProvider"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Review" ADD CONSTRAINT "Review_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Review" ADD CONSTRAINT "Review_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Review" ADD CONSTRAINT "Review_service_id_fkey" FOREIGN KEY ("service_id") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_ServiceToServiceProvider" ADD CONSTRAINT "_ServiceToServiceProvider_A_fkey" FOREIGN KEY ("A") REFERENCES "Service"("id") ON DELETE CASCADE ON UPDATE CASCADE;
