@@ -11,7 +11,7 @@ const createLocation = catchAsynce(async(req, res)=> {
     success: true,
     message: "location created successfully",
     //meta: result.meta,
-    data: result,
+    data: result,  
   });
 })
 

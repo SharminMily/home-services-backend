@@ -17,7 +17,7 @@ const createServiceProvider = catchAsynce(async(req, res)=> {
 })
 
 
-const getAllFromDb = catchAsynce(async(req, res)=> {
+ const getAllFromDb = catchAsynce(async(req, res)=> {
    const result = await serviceProviderServices.getAllFromDb()
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
