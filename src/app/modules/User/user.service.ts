@@ -31,7 +31,7 @@ const createUser = async (req: any) => {
     photo: req.body.photo,
     password: hashPassword,
     phone: req.body.phone ? Number(req.body.phone) : null,
-    gender: req.body.gender || null,
+    gender: req.body.Gender || null,
     adress: req.body.adress, 
   }
 
