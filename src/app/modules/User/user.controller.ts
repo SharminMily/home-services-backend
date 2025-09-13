@@ -4,8 +4,10 @@ import { UserServices } from "./user.service";
 import httpStatus from "http-status";
 
 const createUser = catchAsynce(async (req, res) => {
-  console.log(req.body, "body");
-  const result = await UserServices.createUser(req.body);
+
+
+
+  const result = await UserServices.createUser(req);
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
