@@ -1,9 +1,9 @@
 export type TCategory = {
   id?: string;
   name: string;
-  popular: boolean;
-  featured: boolean;
-  latest: boolean;
+  popular: boolean | null;
+  featured: boolean | null;
+  latest: boolean | null;
 //   service: Service[];
   createdAt?: Date;
   updateAt?: Date;
