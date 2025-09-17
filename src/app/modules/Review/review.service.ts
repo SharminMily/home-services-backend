@@ -13,7 +13,6 @@ const getAllReview = async () => {
    return result;
 }
 
-
 //get single id from database
 const getByIdFromDB = async (id: string) => {
   const result = await prisma.review.findUnique({
