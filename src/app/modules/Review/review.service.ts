@@ -26,6 +26,7 @@ const getByIdFromDB = async (id: string) => {
   return result;
 };
 
+//deleted from DB
 const deleteByIdFromDB = async (id: string) => {
   const result = await prisma.review.findUnique({
     where: {

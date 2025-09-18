@@ -9,8 +9,7 @@ const createReview = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "review created successfully",
-    //meta: result.meta,
+    message: "review created successfully",    
     data: result,
   });
 })
@@ -21,8 +20,7 @@ const getAllReview = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get All successfully",
-    //meta: result.meta,
+    message: "get All successfully",    
     data: result,
   });
 })
@@ -33,8 +31,7 @@ const getByIdFromDB = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get by id successfully",
-    //meta: result.meta,
+    message: "get by id successfully",    
     data: result,
   });
 })
