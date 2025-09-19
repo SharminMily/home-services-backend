@@ -17,7 +17,7 @@ const moduleRoutes =[
         route: AuthRoutes
     },
         {
-        path: '/category',
+        path: '/categories',
         route: CategoryRouter
     },
 
@@ -26,7 +26,7 @@ const moduleRoutes =[
         route: ServiceRouter
     },
     {
-        path: '/location',
+        path: '/locations',
         route: LocationRouter
     },
 ]
