@@ -9,24 +9,20 @@ const createLocation = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "location created successfully",
-    //meta: result.meta,
+    message: "location created successfully",   
     data: result,  
   });
 })
-
 
 const getAllFromDb = catchAsynce(async(req, res)=> {
    const result = await LocationServices.getAllFromDb()
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "get all location successfully",
-    //meta: result.meta,
+    message: "get all location successfully",   
     data: result,
   });
 })
-
 
 const IdFromDb = catchAsynce(async(req, res)=> {
   const {id}  = req.params
@@ -34,12 +30,10 @@ const IdFromDb = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "get location",
-    //meta: result.meta,
+    message: "get location", 
     data: result,
   });
 })
-
 
 const deleteIdFromDb= catchAsynce(async(req, res)=> {
   const {id}  = req.params
@@ -47,12 +41,10 @@ const deleteIdFromDb= catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "deleteId single Location",
-    //meta: result.meta,
+    message: "deleteId single Location",   
     data: [],
   });
 })
-
 
 const updateLocation = catchAsynce(async (req, res) => {
   const { id } = req.params;

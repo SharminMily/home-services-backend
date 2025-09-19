@@ -14,7 +14,6 @@ const createReview = catchAsynce(async(req, res)=> {
   });
 })
 
-
 const getAllReview = catchAsynce(async(req, res)=> {
   const result = await ReviewServices.getAllReview()
   sendResponse(res, {
