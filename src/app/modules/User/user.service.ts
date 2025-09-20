@@ -32,7 +32,7 @@ const createUser = async (req: any) => {
     password: hashPassword,
     phone: req.body.phone ? Number(req.body.phone) : null,
     gender: req.body.Gender || null,
-    adress: req.body.adress, 
+    address: req.body.address, 
   }
 
   const result = await prisma.user.create({ data: userData })

@@ -127,7 +127,7 @@ exports.Prisma.UserScalarFieldEnum = {
   phone: 'phone',
   photo: 'photo',
   password: 'password',
-  adress: 'adress',
+  address: 'address',
   gender: 'gender',
   role: 'role',
   status: 'status',
@@ -159,6 +159,7 @@ exports.Prisma.ServiceProviderScalarFieldEnum = {
 exports.Prisma.CategoriesScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  image: 'image',
   popular: 'popular',
   featured: 'featured',
   latest: 'latest'

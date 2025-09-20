@@ -16,7 +16,7 @@ model User {
   photo            String?
   password         String
   // needPasswordChange Boolean? @default(true)
-  adress           String
+  address           String
   gender           Gender?
   role             UserRole          @default(user)
   status           UserStatus        @default(active)
@@ -60,6 +60,7 @@ model ServiceProvider {
 model Categories {
   id       String    @id @default(uuid())
   name     String
+  image    String?
   popular  Boolean?  @default(false)
   featured Boolean?  @default(false)
   latest   Boolean?  @default(false)

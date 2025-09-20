@@ -1709,7 +1709,7 @@ export namespace Prisma {
     phone: number | null
     photo: string | null
     password: string | null
-    adress: string | null
+    address: string | null
     gender: $Enums.Gender | null
     role: $Enums.UserRole | null
     status: $Enums.UserStatus | null
@@ -1724,7 +1724,7 @@ export namespace Prisma {
     phone: number | null
     photo: string | null
     password: string | null
-    adress: string | null
+    address: string | null
     gender: $Enums.Gender | null
     role: $Enums.UserRole | null
     status: $Enums.UserStatus | null
@@ -1739,7 +1739,7 @@ export namespace Prisma {
     phone: number
     photo: number
     password: number
-    adress: number
+    address: number
     gender: number
     role: number
     status: number
@@ -1764,7 +1764,7 @@ export namespace Prisma {
     phone?: true
     photo?: true
     password?: true
-    adress?: true
+    address?: true
     gender?: true
     role?: true
     status?: true
@@ -1779,7 +1779,7 @@ export namespace Prisma {
     phone?: true
     photo?: true
     password?: true
-    adress?: true
+    address?: true
     gender?: true
     role?: true
     status?: true
@@ -1794,7 +1794,7 @@ export namespace Prisma {
     phone?: true
     photo?: true
     password?: true
-    adress?: true
+    address?: true
     gender?: true
     role?: true
     status?: true
@@ -1896,7 +1896,7 @@ export namespace Prisma {
     phone: number | null
     photo: string | null
     password: string
-    adress: string
+    address: string
     gender: $Enums.Gender | null
     role: $Enums.UserRole
     status: $Enums.UserStatus
@@ -1930,7 +1930,7 @@ export namespace Prisma {
     phone?: boolean
     photo?: boolean
     password?: boolean
-    adress?: boolean
+    address?: boolean
     gender?: boolean
     role?: boolean
     status?: boolean
@@ -1949,7 +1949,7 @@ export namespace Prisma {
     phone?: boolean
     photo?: boolean
     password?: boolean
-    adress?: boolean
+    address?: boolean
     gender?: boolean
     role?: boolean
     status?: boolean
@@ -1964,7 +1964,7 @@ export namespace Prisma {
     phone?: boolean
     photo?: boolean
     password?: boolean
-    adress?: boolean
+    address?: boolean
     gender?: boolean
     role?: boolean
     status?: boolean
@@ -1979,7 +1979,7 @@ export namespace Prisma {
     phone?: boolean
     photo?: boolean
     password?: boolean
-    adress?: boolean
+    address?: boolean
     gender?: boolean
     role?: boolean
     status?: boolean
@@ -1987,7 +1987,7 @@ export namespace Prisma {
     updateAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "photo" | "password" | "adress" | "gender" | "role" | "status" | "createdAt" | "updateAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "photo" | "password" | "address" | "gender" | "role" | "status" | "createdAt" | "updateAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     bookings?: boolean | User$bookingsArgs<ExtArgs>
     reviews?: boolean | User$reviewsArgs<ExtArgs>
@@ -2011,7 +2011,7 @@ export namespace Prisma {
       phone: number | null
       photo: string | null
       password: string
-      adress: string
+      address: string
       gender: $Enums.Gender | null
       role: $Enums.UserRole
       status: $Enums.UserStatus
@@ -2449,7 +2449,7 @@ export namespace Prisma {
     readonly phone: FieldRef<"User", 'Int'>
     readonly photo: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly adress: FieldRef<"User", 'String'>
+    readonly address: FieldRef<"User", 'String'>
     readonly gender: FieldRef<"User", 'Gender'>
     readonly role: FieldRef<"User", 'UserRole'>
     readonly status: FieldRef<"User", 'UserStatus'>
@@ -5355,6 +5355,7 @@ export namespace Prisma {
   export type CategoriesMinAggregateOutputType = {
     id: string | null
     name: string | null
+    image: string | null
     popular: boolean | null
     featured: boolean | null
     latest: boolean | null
@@ -5363,6 +5364,7 @@ export namespace Prisma {
   export type CategoriesMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    image: string | null
     popular: boolean | null
     featured: boolean | null
     latest: boolean | null
@@ -5371,6 +5373,7 @@ export namespace Prisma {
   export type CategoriesCountAggregateOutputType = {
     id: number
     name: number
+    image: number
     popular: number
     featured: number
     latest: number
@@ -5381,6 +5384,7 @@ export namespace Prisma {
   export type CategoriesMinAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     popular?: true
     featured?: true
     latest?: true
@@ -5389,6 +5393,7 @@ export namespace Prisma {
   export type CategoriesMaxAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     popular?: true
     featured?: true
     latest?: true
@@ -5397,6 +5402,7 @@ export namespace Prisma {
   export type CategoriesCountAggregateInputType = {
     id?: true
     name?: true
+    image?: true
     popular?: true
     featured?: true
     latest?: true
@@ -5478,6 +5484,7 @@ export namespace Prisma {
   export type CategoriesGroupByOutputType = {
     id: string
     name: string
+    image: string | null
     popular: boolean | null
     featured: boolean | null
     latest: boolean | null
@@ -5503,6 +5510,7 @@ export namespace Prisma {
   export type CategoriesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     popular?: boolean
     featured?: boolean
     latest?: boolean
@@ -5513,6 +5521,7 @@ export namespace Prisma {
   export type CategoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     popular?: boolean
     featured?: boolean
     latest?: boolean
@@ -5521,6 +5530,7 @@ export namespace Prisma {
   export type CategoriesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    image?: boolean
     popular?: boolean
     featured?: boolean
     latest?: boolean
@@ -5529,12 +5539,13 @@ export namespace Prisma {
   export type CategoriesSelectScalar = {
     id?: boolean
     name?: boolean
+    image?: boolean
     popular?: boolean
     featured?: boolean
     latest?: boolean
   }
 
-  export type CategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "popular" | "featured" | "latest", ExtArgs["result"]["categories"]>
+  export type CategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image" | "popular" | "featured" | "latest", ExtArgs["result"]["categories"]>
   export type CategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     service?: boolean | Categories$serviceArgs<ExtArgs>
     _count?: boolean | CategoriesCountOutputTypeDefaultArgs<ExtArgs>
@@ -5550,6 +5561,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      image: string | null
       popular: boolean | null
       featured: boolean | null
       latest: boolean | null
@@ -5979,6 +5991,7 @@ export namespace Prisma {
   interface CategoriesFieldRefs {
     readonly id: FieldRef<"Categories", 'String'>
     readonly name: FieldRef<"Categories", 'String'>
+    readonly image: FieldRef<"Categories", 'String'>
     readonly popular: FieldRef<"Categories", 'Boolean'>
     readonly featured: FieldRef<"Categories", 'Boolean'>
     readonly latest: FieldRef<"Categories", 'Boolean'>
@@ -9804,7 +9817,7 @@ export namespace Prisma {
     phone: 'phone',
     photo: 'photo',
     password: 'password',
-    adress: 'adress',
+    address: 'address',
     gender: 'gender',
     role: 'role',
     status: 'status',
@@ -9845,6 +9858,7 @@ export namespace Prisma {
   export const CategoriesScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    image: 'image',
     popular: 'popular',
     featured: 'featured',
     latest: 'latest'
@@ -10052,7 +10066,7 @@ export namespace Prisma {
     phone?: IntNullableFilter<"User"> | number | null
     photo?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
-    adress?: StringFilter<"User"> | string
+    address?: StringFilter<"User"> | string
     gender?: EnumGenderNullableFilter<"User"> | $Enums.Gender | null
     role?: EnumUserRoleFilter<"User"> | $Enums.UserRole
     status?: EnumUserStatusFilter<"User"> | $Enums.UserStatus
@@ -10070,7 +10084,7 @@ export namespace Prisma {
     phone?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     password?: SortOrder
-    adress?: SortOrder
+    address?: SortOrder
     gender?: SortOrderInput | SortOrder
     role?: SortOrder
     status?: SortOrder
@@ -10091,7 +10105,7 @@ export namespace Prisma {
     phone?: IntNullableFilter<"User"> | number | null
     photo?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
-    adress?: StringFilter<"User"> | string
+    address?: StringFilter<"User"> | string
     gender?: EnumGenderNullableFilter<"User"> | $Enums.Gender | null
     role?: EnumUserRoleFilter<"User"> | $Enums.UserRole
     status?: EnumUserStatusFilter<"User"> | $Enums.UserStatus
@@ -10109,7 +10123,7 @@ export namespace Prisma {
     phone?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     password?: SortOrder
-    adress?: SortOrder
+    address?: SortOrder
     gender?: SortOrderInput | SortOrder
     role?: SortOrder
     status?: SortOrder
@@ -10132,7 +10146,7 @@ export namespace Prisma {
     phone?: IntNullableWithAggregatesFilter<"User"> | number | null
     photo?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
-    adress?: StringWithAggregatesFilter<"User"> | string
+    address?: StringWithAggregatesFilter<"User"> | string
     gender?: EnumGenderNullableWithAggregatesFilter<"User"> | $Enums.Gender | null
     role?: EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
     status?: EnumUserStatusWithAggregatesFilter<"User"> | $Enums.UserStatus
@@ -10306,6 +10320,7 @@ export namespace Prisma {
     NOT?: CategoriesWhereInput | CategoriesWhereInput[]
     id?: StringFilter<"Categories"> | string
     name?: StringFilter<"Categories"> | string
+    image?: StringNullableFilter<"Categories"> | string | null
     popular?: BoolNullableFilter<"Categories"> | boolean | null
     featured?: BoolNullableFilter<"Categories"> | boolean | null
     latest?: BoolNullableFilter<"Categories"> | boolean | null
@@ -10315,6 +10330,7 @@ export namespace Prisma {
   export type CategoriesOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrderInput | SortOrder
     popular?: SortOrderInput | SortOrder
     featured?: SortOrderInput | SortOrder
     latest?: SortOrderInput | SortOrder
@@ -10327,6 +10343,7 @@ export namespace Prisma {
     OR?: CategoriesWhereInput[]
     NOT?: CategoriesWhereInput | CategoriesWhereInput[]
     name?: StringFilter<"Categories"> | string
+    image?: StringNullableFilter<"Categories"> | string | null
     popular?: BoolNullableFilter<"Categories"> | boolean | null
     featured?: BoolNullableFilter<"Categories"> | boolean | null
     latest?: BoolNullableFilter<"Categories"> | boolean | null
@@ -10336,6 +10353,7 @@ export namespace Prisma {
   export type CategoriesOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrderInput | SortOrder
     popular?: SortOrderInput | SortOrder
     featured?: SortOrderInput | SortOrder
     latest?: SortOrderInput | SortOrder
@@ -10350,6 +10368,7 @@ export namespace Prisma {
     NOT?: CategoriesScalarWhereWithAggregatesInput | CategoriesScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Categories"> | string
     name?: StringWithAggregatesFilter<"Categories"> | string
+    image?: StringNullableWithAggregatesFilter<"Categories"> | string | null
     popular?: BoolNullableWithAggregatesFilter<"Categories"> | boolean | null
     featured?: BoolNullableWithAggregatesFilter<"Categories"> | boolean | null
     latest?: BoolNullableWithAggregatesFilter<"Categories"> | boolean | null
@@ -10568,7 +10587,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -10586,7 +10605,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -10604,7 +10623,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -10622,7 +10641,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -10640,7 +10659,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -10655,7 +10674,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -10670,7 +10689,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -10844,6 +10863,7 @@ export namespace Prisma {
   export type CategoriesCreateInput = {
     id?: string
     name: string
+    image?: string | null
     popular?: boolean | null
     featured?: boolean | null
     latest?: boolean | null
@@ -10853,6 +10873,7 @@ export namespace Prisma {
   export type CategoriesUncheckedCreateInput = {
     id?: string
     name: string
+    image?: string | null
     popular?: boolean | null
     featured?: boolean | null
     latest?: boolean | null
@@ -10862,6 +10883,7 @@ export namespace Prisma {
   export type CategoriesUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -10871,6 +10893,7 @@ export namespace Prisma {
   export type CategoriesUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -10880,6 +10903,7 @@ export namespace Prisma {
   export type CategoriesCreateManyInput = {
     id?: string
     name: string
+    image?: string | null
     popular?: boolean | null
     featured?: boolean | null
     latest?: boolean | null
@@ -10888,6 +10912,7 @@ export namespace Prisma {
   export type CategoriesUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -10896,6 +10921,7 @@ export namespace Prisma {
   export type CategoriesUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -11222,7 +11248,7 @@ export namespace Prisma {
     phone?: SortOrder
     photo?: SortOrder
     password?: SortOrder
-    adress?: SortOrder
+    address?: SortOrder
     gender?: SortOrder
     role?: SortOrder
     status?: SortOrder
@@ -11241,7 +11267,7 @@ export namespace Prisma {
     phone?: SortOrder
     photo?: SortOrder
     password?: SortOrder
-    adress?: SortOrder
+    address?: SortOrder
     gender?: SortOrder
     role?: SortOrder
     status?: SortOrder
@@ -11256,7 +11282,7 @@ export namespace Prisma {
     phone?: SortOrder
     photo?: SortOrder
     password?: SortOrder
-    adress?: SortOrder
+    address?: SortOrder
     gender?: SortOrder
     role?: SortOrder
     status?: SortOrder
@@ -11503,6 +11529,7 @@ export namespace Prisma {
   export type CategoriesCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     popular?: SortOrder
     featured?: SortOrder
     latest?: SortOrder
@@ -11511,6 +11538,7 @@ export namespace Prisma {
   export type CategoriesMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     popular?: SortOrder
     featured?: SortOrder
     latest?: SortOrder
@@ -11519,6 +11547,7 @@ export namespace Prisma {
   export type CategoriesMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    image?: SortOrder
     popular?: SortOrder
     featured?: SortOrder
     latest?: SortOrder
@@ -12757,6 +12786,7 @@ export namespace Prisma {
   export type CategoriesCreateWithoutServiceInput = {
     id?: string
     name: string
+    image?: string | null
     popular?: boolean | null
     featured?: boolean | null
     latest?: boolean | null
@@ -12765,6 +12795,7 @@ export namespace Prisma {
   export type CategoriesUncheckedCreateWithoutServiceInput = {
     id?: string
     name: string
+    image?: string | null
     popular?: boolean | null
     featured?: boolean | null
     latest?: boolean | null
@@ -12895,6 +12926,7 @@ export namespace Prisma {
   export type CategoriesUpdateWithoutServiceInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12903,6 +12935,7 @@ export namespace Prisma {
   export type CategoriesUncheckedUpdateWithoutServiceInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     popular?: NullableBoolFieldUpdateOperationsInput | boolean | null
     featured?: NullableBoolFieldUpdateOperationsInput | boolean | null
     latest?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12996,7 +13029,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13013,7 +13046,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13134,7 +13167,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -13151,7 +13184,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -13302,7 +13335,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13319,7 +13352,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13410,7 +13443,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -13427,7 +13460,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -13514,7 +13547,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13531,7 +13564,7 @@ export namespace Prisma {
     phone?: number | null
     photo?: string | null
     password: string
-    adress: string
+    address: string
     gender?: $Enums.Gender | null
     role?: $Enums.UserRole
     status?: $Enums.UserStatus
@@ -13597,7 +13630,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
@@ -13614,7 +13647,7 @@ export namespace Prisma {
     phone?: NullableIntFieldUpdateOperationsInput | number | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
-    adress?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
