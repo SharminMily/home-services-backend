@@ -1,14 +1,14 @@
 import httpStatus from "http-status";
 import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
-import { TUser, TUserUpdate } from "./user.interface";
+import { TUser, TUserUpdate, userRequest } from "./user.interface";
 import  bcrypt from "bcrypt"
 import { Gender } from "../../../../generated/prisma";
 import { IFile } from "../../interfaces/file";
 import { fileUploader } from "../../../helpers/fileUploder";
 
-const createUser = async (req: any) => {
-  const file: IFile = req.file;
+const createUser = async (req: userRequest) => {
+  const file = req.file;
   if(file){
     const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
     req.body.photo = uploadToCloudinary?.secure_url
@@ -27,21 +27,18 @@ const createUser = async (req: any) => {
   }
 
   const payload = req.body;
+  
   const userData = {
     name: payload.name,
     email: payload.email,
     photo: payload.photo,
     password: hashPassword,
     phone: payload.phone ? Number(payload.phone) : null,
-    gender: payload.gender ?? payload.Gender ?? null,
+    gender:  Gender[payload.gender as keyof typeof Gender] ?? null,
     address: payload.address, 
   }
 
-    // const newUserData = {     
-    //   password: hashPassword,
-    // };
-
-  const result = await prisma.user.create({ data: userData })
+   const result = await prisma.user.create({ data: userData })
   return result;
 };
 

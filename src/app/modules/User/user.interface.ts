@@ -1,3 +1,6 @@
+import { Request } from "express";
+import { IFile } from "../../interfaces/file";
+
 export type TUser = {
   id?: string;
   name: string;
@@ -6,11 +9,10 @@ export type TUser = {
   photo?: string | null;
   password: string;
   address: string; 
- gender:  string | null;
+  gender: 'male' | 'female' | 'Other' | null;
   createdAt?: Date;
   updateAt?: Date;
 };
-
 export type TUserUpdate = {
   name: string ;
   phone?: number | null;
@@ -19,3 +21,6 @@ export type TUserUpdate = {
   createdAt?: Date;
   updateAt?: Date;
 };
+
+
+export type userRequest = Request<{}, {}, TUser> & { file?: IFile };
