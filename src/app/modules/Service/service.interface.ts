@@ -1,14 +1,16 @@
-// import { Types } from "../../../../generated/prisma/runtime/library";
+// src/types/service.type.ts
 
-// export type TServiceProvider = {
-//   id: string;
-//   userId: string;
-//   user: User;  
-//   services: Service[];
-//   bookings: Booking[];
-//   rating: number;
-//   documents?: string;
-//   locationId: string;
-//   location:  Types.ObjectId; 
-//   createdAt: Date;
-// };
+export type TService = {
+  id?: string;   
+  title: string;
+  description: string;
+  category_id: string;         
+  image: string;
+  price: number;
+  document?: string;          
+  location_id: string;         
+  createdAt?: Date;    
+  service_provider?: any[];
+  booking?: any[];
+  reviews?: any[];
+};

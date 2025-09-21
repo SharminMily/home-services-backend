@@ -1,9 +1,12 @@
-
 import { prisma } from "../../../shared/prismaClient";
-const createLocation = async(payload: any) => {
- console.log("Create Service")
+import { TLocation } from "./location.interface";
+
+
+const createLocation = async(payload: TLocation) => {
+//  console.log("Create Service")
+  const { service, service_provider, ...locationData } = payload; 
  const result = await prisma.availableLocation.create({
-      data: payload
+      data: locationData,
     });
 
     return result;

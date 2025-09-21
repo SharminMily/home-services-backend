@@ -6,7 +6,7 @@ export const userValidation = {
     email: z.string().email({ message: "Invalid email address" }),
     phone: z.number({ required_error: "phone is required" }),
     password: z.string({ required_error: "password is required" }),
-    adress: z.string({ required_error: "adress is required" }),
+    address: z.string({ required_error: "address is required" }),
     gender: z.string().optional(),
     role: z.string().optional(),
   }),

@@ -4,9 +4,6 @@ import { UserServices } from "./user.service";
 import httpStatus from "http-status";
 
 const createUser = catchAsynce(async (req, res) => {
-
-
-
   const result = await UserServices.createUser(req);
   sendResponse(res, {
     statusCode: httpStatus.CREATED,

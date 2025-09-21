@@ -46,7 +46,7 @@ const upload = multer({ storage: storage })
 
   } 
 
-export const fileUploder = {
+export const fileUploader = {
  upload ,
  uploadToCloudinary
 }

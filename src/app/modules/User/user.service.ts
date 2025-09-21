@@ -4,13 +4,13 @@ import { prisma } from "../../../shared/prismaClient";
 import { TUser, TUserUpdate } from "./user.interface";
 import  bcrypt from "bcrypt"
 import { Gender } from "../../../../generated/prisma";
-import { fileUploder } from "../../../helpers/fileUploder";
 import { IFile } from "../../interfaces/file";
+import { fileUploader } from "../../../helpers/fileUploder";
 
 const createUser = async (req: any) => {
   const file: IFile = req.file;
   if(file){
-    const uploadToCloudinary = await fileUploder.uploadToCloudinary(file);
+    const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
     req.body.photo = uploadToCloudinary?.secure_url
      console.log(req.body)
   }
@@ -25,15 +25,21 @@ const createUser = async (req: any) => {
   if (existingUser) {
     throw new AppError(httpStatus.CONFLICT, "Email already exists.");
   }
+
+  const payload = req.body;
   const userData = {
-    name: req.body.name,
-    email: req.body.email,
-    photo: req.body.photo,
+    name: payload.name,
+    email: payload.email,
+    photo: payload.photo,
     password: hashPassword,
-    phone: req.body.phone ? Number(req.body.phone) : null,
-    gender: req.body.Gender || null,
-    address: req.body.address, 
+    phone: payload.phone ? Number(payload.phone) : null,
+    gender: payload.gender ?? payload.Gender ?? null,
+    address: payload.address, 
   }
+
+    // const newUserData = {     
+    //   password: hashPassword,
+    // };
 
   const result = await prisma.user.create({ data: userData })
   return result;
