@@ -2,15 +2,15 @@ import { catchAsynce } from "../../../shared/catchAsync";
 import { sendResponse } from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import { ServiceServices } from "./service.services";
+import { Request, Response } from "express";
 
-const createService = catchAsynce(async(req, res)=> {
-  console.log(req.body)
-  const result = await ServiceServices.createService(req.body)
+const createService = catchAsynce(async(req: Request, res: Response)=> {
+  // console.log(req.body)
+  const result = await ServiceServices.createService(req)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "service created successfully",
-    //meta: result.meta,
+    message: "service created successfully",   
     data: result,
   });
 })

@@ -1,25 +1,24 @@
+import { Request } from "express";
+import { fileUploader } from "../../../helpers/fileUploder";
 import { prisma } from "../../../shared/prismaClient";
+import { IFile } from "../../interfaces/file";
+import { serviceRequest } from "./service.interface";
 
-const createService = async(payload: any) => {
- console.log("Create Service")
- const result = await prisma.service.create({
-      data: {
-      title: payload.title,
-      description: payload.description,
-      category_id: payload.category_id, 
-      location_id: payload.location_id, 
-      image: payload.image,
-      price: payload.price,
-      document: payload.document ?? null,
-    },
-    include: {
-      category: true,  
-      location: true,   
-    },
+const createService = async (req: Request) => {  
+    const file = req.file as IFile;
+
+    if (file) {
+        const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
+        req.body.image = uploadToCloudinary?.secure_url;
+    }
+
+    const result = await prisma.service.create({
+        data: req.body
     });
 
     return result;
 };
+
 
 
 const allServiceFromDb = async() => { 
