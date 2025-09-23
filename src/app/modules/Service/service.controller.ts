@@ -3,10 +3,11 @@ import { sendResponse } from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import { ServiceServices } from "./service.services";
 import { Request, Response } from "express";
+import pick from "../../../shared/pick";
+import { serviceFilterableFields } from "./service.constants";
 
-const createService = catchAsynce(async(req: Request, res: Response)=> {
-  console.log(req.query)
-  const result = await ServiceServices.createService(req, req.query)
+const createService = catchAsynce(async(req: Request, res: Response)=> {  
+  const result = await ServiceServices.createService(req)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
@@ -16,12 +17,15 @@ const createService = catchAsynce(async(req: Request, res: Response)=> {
 })
 
 const allServiceFromDb = catchAsynce(async(req, res)=> {
-   const result = await ServiceServices.allServiceFromDb()
+  // console.log("queryyy", req.query)
+  const filters = pick(req.query, serviceFilterableFields);
+    const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
+   const result = await ServiceServices.allServiceFromDb(filters, options)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
     message: "get all services successfully",
-    //meta: result.meta,
+    meta: result.meta,
     data: result,
   });
 })

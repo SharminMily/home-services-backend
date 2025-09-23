@@ -255,6 +255,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -265,7 +266,7 @@ const config = {
   },
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id               String            @id @default(uuid())\n  name             String\n  email            String            @unique\n  phone            Int?\n  photo            String?\n  password         String\n  // needPasswordChange Boolean? @default(true)\n  address          String\n  gender           Gender?\n  role             UserRole          @default(user)\n  status           UserStatus        @default(active)\n  bookings         Booking[]\n  reviews          Review[]\n  service_provider ServiceProvider[]\n  createdAt        DateTime          @default(now())\n  updateAt         DateTime          @default(now())\n}\n\nmodel Service {\n  id               String            @id @default(uuid())\n  title            String\n  description      String\n  category_id      String\n  category         Categories        @relation(fields: [category_id], references: [id])\n  image            String\n  price            Int\n  document         String?\n  location_id      String\n  location         AvailableLocation @relation(fields: [location_id], references: [id])\n  service_provider ServiceProvider[]\n  booking          Booking[]\n  reviews          Review[]\n  createdAt        DateTime          @default(now())\n}\n\nmodel ServiceProvider {\n  id          String            @id @default(uuid())\n  user_id     String            @unique\n  user        User              @relation(fields: [user_id], references: [id])\n  services    Service[]\n  bookings    Booking[]\n  rating      Int               @default(0)\n  documents   String?\n  location_id String\n  location    AvailableLocation @relation(fields: [location_id], references: [id])\n  createdAt   DateTime          @default(now())\n}\n\nmodel Categories {\n  id       String    @id @default(uuid())\n  name     String\n  image    String?\n  popular  Boolean?  @default(false)\n  featured Boolean?  @default(false)\n  latest   Boolean?  @default(false)\n  service  Service[]\n}\n\nmodel Booking {\n  id          String          @id @default(uuid())\n  user_id     String\n  user        User            @relation(fields: [user_id], references: [id])\n  service_id  String\n  service     Service         @relation(fields: [service_id], references: [id])\n  provider_id String\n  provider    ServiceProvider @relation(fields: [provider_id], references: [id])\n  status      Status          @default(pending)\n  scheduledAt DateTime\n  createdAt   DateTime        @default(now())\n}\n\nmodel Review {\n  id         String   @id @default(uuid())\n  rating     Int\n  comment    String?\n  user_id    String\n  user       User     @relation(fields: [user_id], references: [id])\n  service_id String\n  service    Service  @relation(fields: [service_id], references: [id])\n  createdAt  DateTime @default(now())\n}\n\nmodel AvailableLocation {\n  id               String            @id @default(uuid())\n  division         String\n  district         String\n  area             String\n  lat              String\n  lon              Float\n  address          String\n  service          Service[]\n  service_provider ServiceProvider[]\n}\n\nenum UserRole {\n  admin\n  user\n  services_provider\n}\n\nenum UserStatus {\n  active\n  blocked\n  deleted\n}\n\nenum Gender {\n  male\n  female\n  Other\n}\n\nenum Status {\n  pending\n  accepted\n  complated\n  cancelled\n  failed\n}\n",
   "inlineSchemaHash": "2ff3b12dd05847c79d344559b575084c9949f4c029eb6fa6eefd7d9a6eea99ec",
-  "copyEngine": false
+  "copyEngine": true
 }
 
 const fs = require('fs')
@@ -302,3 +303,9 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
+// file annotations for bundling tools to include these files
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+// file annotations for bundling tools to include these files
+path.join(__dirname, "schema.prisma");
+path.join(process.cwd(), "generated/prisma/schema.prisma")
