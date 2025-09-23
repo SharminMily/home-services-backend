@@ -12,7 +12,7 @@ router.post(
   fileUploader.upload.single("file"),
   (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log("Raw body:", req.body);
+      // console.log("Raw body:", req.body);
       const parsedBody = JSON.parse(req.body.text);
 
       const parsed = serviceValidation.createService.parse({

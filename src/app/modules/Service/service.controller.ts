@@ -5,8 +5,8 @@ import { ServiceServices } from "./service.services";
 import { Request, Response } from "express";
 
 const createService = catchAsynce(async(req: Request, res: Response)=> {
-  // console.log(req.body)
-  const result = await ServiceServices.createService(req)
+  console.log(req.query)
+  const result = await ServiceServices.createService(req, req.query)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
@@ -14,7 +14,6 @@ const createService = catchAsynce(async(req: Request, res: Response)=> {
     data: result,
   });
 })
-
 
 const allServiceFromDb = catchAsynce(async(req, res)=> {
    const result = await ServiceServices.allServiceFromDb()
