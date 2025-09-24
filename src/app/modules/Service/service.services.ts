@@ -71,29 +71,35 @@ const allServiceFromDb = async (
 ) => {
   const { limit, page, skip } = paginationHelper.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
-  console.log("serchTerm----",searchTerm)
-  console.log(filters,options)
-
+  // console.log("serchTerm----",searchTerm, "options---", options)
+ 
   const andConditions: Prisma.ServiceWhereInput[] = [];
-  if (searchTerm) {
-    andConditions.push({
-      OR: [
-        { title: { contains: searchTerm, mode: 'insensitive' } },
-        { description: { contains: searchTerm, mode: 'insensitive' } },
-        { category: { name: { contains: searchTerm, mode: 'insensitive' } } },
-        { location: { name: { contains: searchTerm, mode: 'insensitive' } } },
-      ],
-    });
-  }
+   if (searchTerm) {
+  andConditions.push({
+    OR: [
+      { title: { contains: searchTerm, mode: 'insensitive' } },
+      { description: { contains: searchTerm, mode: 'insensitive' } },
+      {
+        category: {
+          is: { name: { contains: searchTerm, mode: 'insensitive' } },
+        },
+      },
+      {
+        location: {
+          is: { address: { contains: searchTerm, mode: 'insensitive' } },
+        },
+      },
+    ],
+  });
+}
 
   if (Object.keys(filterData).length > 0) {
-    const filterConditions = Object.keys(filterData).map(key => ({
-      [key]: {
-        equals: (filterData as any)[key],
-      },
-    }));
+    const filterConditions = Object.keys(filterData).map((key) => {
+      return { [key]: { equals: (filterData as any)[key] } };
+    });
     andConditions.push(...filterConditions);
   }
+
 
   // andConditions.push({ isDeleted: false });
 
