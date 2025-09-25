@@ -26,44 +26,6 @@ const createService = async (req: Request) => {
   return result;
 };
 
-// const allServiceFromDb = async (params: any) => {
-//   console.log({params})
-//   const result = await prisma.service.findMany({
-//      where: {
-//       OR: [
-//         {
-//           title: {
-//             contains: params.searchTerm,
-//             mode: "insensitive",
-//           },
-//         },
-//         {
-//           category: {
-//             name: {   
-//               contains: params.searchTerm,
-//               mode: "insensitive",
-//             },
-//           },
-//         },
-//         {
-//           location: {
-//             address: {  
-//               contains: params.searchTerm,
-//               mode: "insensitive",
-//             },
-//           },
-//         },
-//       ],
-//     },
-//     include: {
-//       category: true,
-//       location: true,
-//     },
-//   });
-
-//   return result;
-// };
-
 
 const allServiceFromDb = async (
   filters: any,
@@ -71,8 +33,7 @@ const allServiceFromDb = async (
 ) => {
   const { limit, page, skip } = paginationHelper.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
-  // console.log("serchTerm----",searchTerm, "options---", options)
- 
+   
   const andConditions: Prisma.ServiceWhereInput[] = [];
    if (searchTerm) {
   andConditions.push({
