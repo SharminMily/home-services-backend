@@ -1,5 +1,3 @@
-// src/types/service.type.ts
-
 import { Request } from "express";
 import { IFile } from "../../interfaces/file";
 

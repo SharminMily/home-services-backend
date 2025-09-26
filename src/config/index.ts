@@ -10,7 +10,6 @@ export default {
         expires_in: process.env.JWT_TOKEN_EXPIRES_IN,
         refresh_token_secret: process.env.REFRESH_TOKEN_SECRECT,
         refresh_token_expires_in: process.env.REFRESH_TOKEN_EXPIRES_IN,      
-    },
-    
+    },    
         
 }

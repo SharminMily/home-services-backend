@@ -17,7 +17,7 @@ app.use(express.urlencoded());
 
 app.get("/", (req: Request, res: Response) => {
   res.send({
-    Message: "Home service......!",
+    Message: "Home service....!",
   });
 });
 

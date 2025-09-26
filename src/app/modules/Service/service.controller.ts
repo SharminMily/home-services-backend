@@ -37,7 +37,6 @@ const serviceIdFromDb = catchAsynce(async(req, res)=> {
     statusCode: httpStatus.CREATED,
     success: true,
     message: "get single service",
-    //meta: result.meta,
     data: result,
   });
 })
