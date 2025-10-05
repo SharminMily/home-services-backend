@@ -30,6 +30,6 @@ router.post(
 router.get("/:id", ServiceController.deleteIdFromDb);
 router.get("/:id", ServiceController.updateService);
 router.get("/", ServiceController.allServiceFromDb);
-// router.get("/")
+
 
 export const ServiceRouter = router;
