@@ -48,6 +48,21 @@ export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
  * 
  */
 export type AvailableLocation = $Result.DefaultSelection<Prisma.$AvailableLocationPayload>
+/**
+ * Model Division
+ * 
+ */
+export type Division = $Result.DefaultSelection<Prisma.$DivisionPayload>
+/**
+ * Model District
+ * 
+ */
+export type District = $Result.DefaultSelection<Prisma.$DistrictPayload>
+/**
+ * Model Upazila
+ * 
+ */
+export type Upazila = $Result.DefaultSelection<Prisma.$UpazilaPayload>
 
 /**
  * Enums
@@ -302,6 +317,36 @@ export class PrismaClient<
     * ```
     */
   get availableLocation(): Prisma.AvailableLocationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.division`: Exposes CRUD operations for the **Division** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Divisions
+    * const divisions = await prisma.division.findMany()
+    * ```
+    */
+  get division(): Prisma.DivisionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.district`: Exposes CRUD operations for the **District** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Districts
+    * const districts = await prisma.district.findMany()
+    * ```
+    */
+  get district(): Prisma.DistrictDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.upazila`: Exposes CRUD operations for the **Upazila** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Upazilas
+    * const upazilas = await prisma.upazila.findMany()
+    * ```
+    */
+  get upazila(): Prisma.UpazilaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -748,7 +793,10 @@ export namespace Prisma {
     Categories: 'Categories',
     Booking: 'Booking',
     Review: 'Review',
-    AvailableLocation: 'AvailableLocation'
+    AvailableLocation: 'AvailableLocation',
+    Division: 'Division',
+    District: 'District',
+    Upazila: 'Upazila'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -767,7 +815,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "service" | "serviceProvider" | "categories" | "booking" | "review" | "availableLocation"
+      modelProps: "user" | "service" | "serviceProvider" | "categories" | "booking" | "review" | "availableLocation" | "division" | "district" | "upazila"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1289,6 +1337,228 @@ export namespace Prisma {
           }
         }
       }
+      Division: {
+        payload: Prisma.$DivisionPayload<ExtArgs>
+        fields: Prisma.DivisionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DivisionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DivisionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          findFirst: {
+            args: Prisma.DivisionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DivisionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          findMany: {
+            args: Prisma.DivisionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>[]
+          }
+          create: {
+            args: Prisma.DivisionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          createMany: {
+            args: Prisma.DivisionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DivisionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>[]
+          }
+          delete: {
+            args: Prisma.DivisionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          update: {
+            args: Prisma.DivisionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          deleteMany: {
+            args: Prisma.DivisionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DivisionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DivisionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>[]
+          }
+          upsert: {
+            args: Prisma.DivisionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          aggregate: {
+            args: Prisma.DivisionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDivision>
+          }
+          groupBy: {
+            args: Prisma.DivisionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DivisionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DivisionCountArgs<ExtArgs>
+            result: $Utils.Optional<DivisionCountAggregateOutputType> | number
+          }
+        }
+      }
+      District: {
+        payload: Prisma.$DistrictPayload<ExtArgs>
+        fields: Prisma.DistrictFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DistrictFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DistrictFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          findFirst: {
+            args: Prisma.DistrictFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DistrictFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          findMany: {
+            args: Prisma.DistrictFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>[]
+          }
+          create: {
+            args: Prisma.DistrictCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          createMany: {
+            args: Prisma.DistrictCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DistrictCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>[]
+          }
+          delete: {
+            args: Prisma.DistrictDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          update: {
+            args: Prisma.DistrictUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          deleteMany: {
+            args: Prisma.DistrictDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DistrictUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DistrictUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>[]
+          }
+          upsert: {
+            args: Prisma.DistrictUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DistrictPayload>
+          }
+          aggregate: {
+            args: Prisma.DistrictAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDistrict>
+          }
+          groupBy: {
+            args: Prisma.DistrictGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DistrictGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DistrictCountArgs<ExtArgs>
+            result: $Utils.Optional<DistrictCountAggregateOutputType> | number
+          }
+        }
+      }
+      Upazila: {
+        payload: Prisma.$UpazilaPayload<ExtArgs>
+        fields: Prisma.UpazilaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UpazilaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UpazilaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          findFirst: {
+            args: Prisma.UpazilaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UpazilaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          findMany: {
+            args: Prisma.UpazilaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>[]
+          }
+          create: {
+            args: Prisma.UpazilaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          createMany: {
+            args: Prisma.UpazilaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UpazilaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>[]
+          }
+          delete: {
+            args: Prisma.UpazilaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          update: {
+            args: Prisma.UpazilaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          deleteMany: {
+            args: Prisma.UpazilaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UpazilaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UpazilaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>[]
+          }
+          upsert: {
+            args: Prisma.UpazilaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpazilaPayload>
+          }
+          aggregate: {
+            args: Prisma.UpazilaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUpazila>
+          }
+          groupBy: {
+            args: Prisma.UpazilaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UpazilaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UpazilaCountArgs<ExtArgs>
+            result: $Utils.Optional<UpazilaCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1380,6 +1650,9 @@ export namespace Prisma {
     booking?: BookingOmit
     review?: ReviewOmit
     availableLocation?: AvailableLocationOmit
+    division?: DivisionOmit
+    district?: DistrictOmit
+    upazila?: UpazilaOmit
   }
 
   /* Types for Logging */
@@ -1675,6 +1948,68 @@ export namespace Prisma {
    */
   export type AvailableLocationCountOutputTypeCountService_providerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ServiceProviderWhereInput
+  }
+
+
+  /**
+   * Count Type DivisionCountOutputType
+   */
+
+  export type DivisionCountOutputType = {
+    districts: number
+  }
+
+  export type DivisionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    districts?: boolean | DivisionCountOutputTypeCountDistrictsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DivisionCountOutputType without action
+   */
+  export type DivisionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionCountOutputType
+     */
+    select?: DivisionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DivisionCountOutputType without action
+   */
+  export type DivisionCountOutputTypeCountDistrictsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DistrictWhereInput
+  }
+
+
+  /**
+   * Count Type DistrictCountOutputType
+   */
+
+  export type DistrictCountOutputType = {
+    upazilas: number
+  }
+
+  export type DistrictCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    upazilas?: boolean | DistrictCountOutputTypeCountUpazilasArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DistrictCountOutputType without action
+   */
+  export type DistrictCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DistrictCountOutputType
+     */
+    select?: DistrictCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DistrictCountOutputType without action
+   */
+  export type DistrictCountOutputTypeCountUpazilasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UpazilaWhereInput
   }
 
 
@@ -9797,6 +10132,3131 @@ export namespace Prisma {
 
 
   /**
+   * Model Division
+   */
+
+  export type AggregateDivision = {
+    _count: DivisionCountAggregateOutputType | null
+    _min: DivisionMinAggregateOutputType | null
+    _max: DivisionMaxAggregateOutputType | null
+  }
+
+  export type DivisionMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+  }
+
+  export type DivisionMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+  }
+
+  export type DivisionCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type DivisionMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type DivisionMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type DivisionCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type DivisionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Division to aggregate.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Divisions
+    **/
+    _count?: true | DivisionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DivisionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DivisionMaxAggregateInputType
+  }
+
+  export type GetDivisionAggregateType<T extends DivisionAggregateArgs> = {
+        [P in keyof T & keyof AggregateDivision]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDivision[P]>
+      : GetScalarType<T[P], AggregateDivision[P]>
+  }
+
+
+
+
+  export type DivisionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DivisionWhereInput
+    orderBy?: DivisionOrderByWithAggregationInput | DivisionOrderByWithAggregationInput[]
+    by: DivisionScalarFieldEnum[] | DivisionScalarFieldEnum
+    having?: DivisionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DivisionCountAggregateInputType | true
+    _min?: DivisionMinAggregateInputType
+    _max?: DivisionMaxAggregateInputType
+  }
+
+  export type DivisionGroupByOutputType = {
+    id: string
+    name: string
+    _count: DivisionCountAggregateOutputType | null
+    _min: DivisionMinAggregateOutputType | null
+    _max: DivisionMaxAggregateOutputType | null
+  }
+
+  type GetDivisionGroupByPayload<T extends DivisionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DivisionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DivisionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DivisionGroupByOutputType[P]>
+            : GetScalarType<T[P], DivisionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DivisionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    districts?: boolean | Division$districtsArgs<ExtArgs>
+    _count?: boolean | DivisionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["division"]>
+
+  export type DivisionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["division"]>
+
+  export type DivisionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["division"]>
+
+  export type DivisionSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+  export type DivisionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["division"]>
+  export type DivisionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    districts?: boolean | Division$districtsArgs<ExtArgs>
+    _count?: boolean | DivisionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DivisionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type DivisionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $DivisionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Division"
+    objects: {
+      districts: Prisma.$DistrictPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+    }, ExtArgs["result"]["division"]>
+    composites: {}
+  }
+
+  type DivisionGetPayload<S extends boolean | null | undefined | DivisionDefaultArgs> = $Result.GetResult<Prisma.$DivisionPayload, S>
+
+  type DivisionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DivisionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DivisionCountAggregateInputType | true
+    }
+
+  export interface DivisionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Division'], meta: { name: 'Division' } }
+    /**
+     * Find zero or one Division that matches the filter.
+     * @param {DivisionFindUniqueArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DivisionFindUniqueArgs>(args: SelectSubset<T, DivisionFindUniqueArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Division that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DivisionFindUniqueOrThrowArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DivisionFindUniqueOrThrowArgs>(args: SelectSubset<T, DivisionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Division that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindFirstArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DivisionFindFirstArgs>(args?: SelectSubset<T, DivisionFindFirstArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Division that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindFirstOrThrowArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DivisionFindFirstOrThrowArgs>(args?: SelectSubset<T, DivisionFindFirstOrThrowArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Divisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Divisions
+     * const divisions = await prisma.division.findMany()
+     * 
+     * // Get first 10 Divisions
+     * const divisions = await prisma.division.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const divisionWithIdOnly = await prisma.division.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DivisionFindManyArgs>(args?: SelectSubset<T, DivisionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Division.
+     * @param {DivisionCreateArgs} args - Arguments to create a Division.
+     * @example
+     * // Create one Division
+     * const Division = await prisma.division.create({
+     *   data: {
+     *     // ... data to create a Division
+     *   }
+     * })
+     * 
+     */
+    create<T extends DivisionCreateArgs>(args: SelectSubset<T, DivisionCreateArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Divisions.
+     * @param {DivisionCreateManyArgs} args - Arguments to create many Divisions.
+     * @example
+     * // Create many Divisions
+     * const division = await prisma.division.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DivisionCreateManyArgs>(args?: SelectSubset<T, DivisionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Divisions and returns the data saved in the database.
+     * @param {DivisionCreateManyAndReturnArgs} args - Arguments to create many Divisions.
+     * @example
+     * // Create many Divisions
+     * const division = await prisma.division.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Divisions and only return the `id`
+     * const divisionWithIdOnly = await prisma.division.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DivisionCreateManyAndReturnArgs>(args?: SelectSubset<T, DivisionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Division.
+     * @param {DivisionDeleteArgs} args - Arguments to delete one Division.
+     * @example
+     * // Delete one Division
+     * const Division = await prisma.division.delete({
+     *   where: {
+     *     // ... filter to delete one Division
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DivisionDeleteArgs>(args: SelectSubset<T, DivisionDeleteArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Division.
+     * @param {DivisionUpdateArgs} args - Arguments to update one Division.
+     * @example
+     * // Update one Division
+     * const division = await prisma.division.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DivisionUpdateArgs>(args: SelectSubset<T, DivisionUpdateArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Divisions.
+     * @param {DivisionDeleteManyArgs} args - Arguments to filter Divisions to delete.
+     * @example
+     * // Delete a few Divisions
+     * const { count } = await prisma.division.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DivisionDeleteManyArgs>(args?: SelectSubset<T, DivisionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Divisions
+     * const division = await prisma.division.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DivisionUpdateManyArgs>(args: SelectSubset<T, DivisionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Divisions and returns the data updated in the database.
+     * @param {DivisionUpdateManyAndReturnArgs} args - Arguments to update many Divisions.
+     * @example
+     * // Update many Divisions
+     * const division = await prisma.division.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Divisions and only return the `id`
+     * const divisionWithIdOnly = await prisma.division.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DivisionUpdateManyAndReturnArgs>(args: SelectSubset<T, DivisionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Division.
+     * @param {DivisionUpsertArgs} args - Arguments to update or create a Division.
+     * @example
+     * // Update or create a Division
+     * const division = await prisma.division.upsert({
+     *   create: {
+     *     // ... data to create a Division
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Division we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DivisionUpsertArgs>(args: SelectSubset<T, DivisionUpsertArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionCountArgs} args - Arguments to filter Divisions to count.
+     * @example
+     * // Count the number of Divisions
+     * const count = await prisma.division.count({
+     *   where: {
+     *     // ... the filter for the Divisions we want to count
+     *   }
+     * })
+    **/
+    count<T extends DivisionCountArgs>(
+      args?: Subset<T, DivisionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DivisionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Division.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DivisionAggregateArgs>(args: Subset<T, DivisionAggregateArgs>): Prisma.PrismaPromise<GetDivisionAggregateType<T>>
+
+    /**
+     * Group by Division.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DivisionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DivisionGroupByArgs['orderBy'] }
+        : { orderBy?: DivisionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DivisionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDivisionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Division model
+   */
+  readonly fields: DivisionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Division.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DivisionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    districts<T extends Division$districtsArgs<ExtArgs> = {}>(args?: Subset<T, Division$districtsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Division model
+   */
+  interface DivisionFieldRefs {
+    readonly id: FieldRef<"Division", 'String'>
+    readonly name: FieldRef<"Division", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Division findUnique
+   */
+  export type DivisionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+  /**
+   * Division findUniqueOrThrow
+   */
+  export type DivisionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+  /**
+   * Division findFirst
+   */
+  export type DivisionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+  /**
+   * Division findFirstOrThrow
+   */
+  export type DivisionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+  /**
+   * Division findMany
+   */
+  export type DivisionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+  /**
+   * Division create
+   */
+  export type DivisionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Division.
+     */
+    data: XOR<DivisionCreateInput, DivisionUncheckedCreateInput>
+  }
+
+  /**
+   * Division createMany
+   */
+  export type DivisionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Divisions.
+     */
+    data: DivisionCreateManyInput | DivisionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Division createManyAndReturn
+   */
+  export type DivisionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Divisions.
+     */
+    data: DivisionCreateManyInput | DivisionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Division update
+   */
+  export type DivisionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Division.
+     */
+    data: XOR<DivisionUpdateInput, DivisionUncheckedUpdateInput>
+    /**
+     * Choose, which Division to update.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+  /**
+   * Division updateMany
+   */
+  export type DivisionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Divisions.
+     */
+    data: XOR<DivisionUpdateManyMutationInput, DivisionUncheckedUpdateManyInput>
+    /**
+     * Filter which Divisions to update
+     */
+    where?: DivisionWhereInput
+    /**
+     * Limit how many Divisions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Division updateManyAndReturn
+   */
+  export type DivisionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * The data used to update Divisions.
+     */
+    data: XOR<DivisionUpdateManyMutationInput, DivisionUncheckedUpdateManyInput>
+    /**
+     * Filter which Divisions to update
+     */
+    where?: DivisionWhereInput
+    /**
+     * Limit how many Divisions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Division upsert
+   */
+  export type DivisionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Division to update in case it exists.
+     */
+    where: DivisionWhereUniqueInput
+    /**
+     * In case the Division found by the `where` argument doesn't exist, create a new Division with this data.
+     */
+    create: XOR<DivisionCreateInput, DivisionUncheckedCreateInput>
+    /**
+     * In case the Division was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DivisionUpdateInput, DivisionUncheckedUpdateInput>
+  }
+
+  /**
+   * Division delete
+   */
+  export type DivisionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter which Division to delete.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+  /**
+   * Division deleteMany
+   */
+  export type DivisionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Divisions to delete
+     */
+    where?: DivisionWhereInput
+    /**
+     * Limit how many Divisions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Division.districts
+   */
+  export type Division$districtsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    where?: DistrictWhereInput
+    orderBy?: DistrictOrderByWithRelationInput | DistrictOrderByWithRelationInput[]
+    cursor?: DistrictWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DistrictScalarFieldEnum | DistrictScalarFieldEnum[]
+  }
+
+  /**
+   * Division without action
+   */
+  export type DivisionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Division
+     */
+    omit?: DivisionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DivisionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model District
+   */
+
+  export type AggregateDistrict = {
+    _count: DistrictCountAggregateOutputType | null
+    _min: DistrictMinAggregateOutputType | null
+    _max: DistrictMaxAggregateOutputType | null
+  }
+
+  export type DistrictMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    divisionId: string | null
+  }
+
+  export type DistrictMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    divisionId: string | null
+  }
+
+  export type DistrictCountAggregateOutputType = {
+    id: number
+    name: number
+    divisionId: number
+    _all: number
+  }
+
+
+  export type DistrictMinAggregateInputType = {
+    id?: true
+    name?: true
+    divisionId?: true
+  }
+
+  export type DistrictMaxAggregateInputType = {
+    id?: true
+    name?: true
+    divisionId?: true
+  }
+
+  export type DistrictCountAggregateInputType = {
+    id?: true
+    name?: true
+    divisionId?: true
+    _all?: true
+  }
+
+  export type DistrictAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which District to aggregate.
+     */
+    where?: DistrictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Districts to fetch.
+     */
+    orderBy?: DistrictOrderByWithRelationInput | DistrictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DistrictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Districts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Districts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Districts
+    **/
+    _count?: true | DistrictCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DistrictMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DistrictMaxAggregateInputType
+  }
+
+  export type GetDistrictAggregateType<T extends DistrictAggregateArgs> = {
+        [P in keyof T & keyof AggregateDistrict]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDistrict[P]>
+      : GetScalarType<T[P], AggregateDistrict[P]>
+  }
+
+
+
+
+  export type DistrictGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DistrictWhereInput
+    orderBy?: DistrictOrderByWithAggregationInput | DistrictOrderByWithAggregationInput[]
+    by: DistrictScalarFieldEnum[] | DistrictScalarFieldEnum
+    having?: DistrictScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DistrictCountAggregateInputType | true
+    _min?: DistrictMinAggregateInputType
+    _max?: DistrictMaxAggregateInputType
+  }
+
+  export type DistrictGroupByOutputType = {
+    id: string
+    name: string
+    divisionId: string
+    _count: DistrictCountAggregateOutputType | null
+    _min: DistrictMinAggregateOutputType | null
+    _max: DistrictMaxAggregateOutputType | null
+  }
+
+  type GetDistrictGroupByPayload<T extends DistrictGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DistrictGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DistrictGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DistrictGroupByOutputType[P]>
+            : GetScalarType<T[P], DistrictGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DistrictSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    divisionId?: boolean
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+    upazilas?: boolean | District$upazilasArgs<ExtArgs>
+    _count?: boolean | DistrictCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["district"]>
+
+  export type DistrictSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    divisionId?: boolean
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["district"]>
+
+  export type DistrictSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    divisionId?: boolean
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["district"]>
+
+  export type DistrictSelectScalar = {
+    id?: boolean
+    name?: boolean
+    divisionId?: boolean
+  }
+
+  export type DistrictOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "divisionId", ExtArgs["result"]["district"]>
+  export type DistrictInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+    upazilas?: boolean | District$upazilasArgs<ExtArgs>
+    _count?: boolean | DistrictCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DistrictIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }
+  export type DistrictIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }
+
+  export type $DistrictPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "District"
+    objects: {
+      division: Prisma.$DivisionPayload<ExtArgs>
+      upazilas: Prisma.$UpazilaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      divisionId: string
+    }, ExtArgs["result"]["district"]>
+    composites: {}
+  }
+
+  type DistrictGetPayload<S extends boolean | null | undefined | DistrictDefaultArgs> = $Result.GetResult<Prisma.$DistrictPayload, S>
+
+  type DistrictCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DistrictFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DistrictCountAggregateInputType | true
+    }
+
+  export interface DistrictDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['District'], meta: { name: 'District' } }
+    /**
+     * Find zero or one District that matches the filter.
+     * @param {DistrictFindUniqueArgs} args - Arguments to find a District
+     * @example
+     * // Get one District
+     * const district = await prisma.district.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DistrictFindUniqueArgs>(args: SelectSubset<T, DistrictFindUniqueArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one District that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DistrictFindUniqueOrThrowArgs} args - Arguments to find a District
+     * @example
+     * // Get one District
+     * const district = await prisma.district.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DistrictFindUniqueOrThrowArgs>(args: SelectSubset<T, DistrictFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first District that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictFindFirstArgs} args - Arguments to find a District
+     * @example
+     * // Get one District
+     * const district = await prisma.district.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DistrictFindFirstArgs>(args?: SelectSubset<T, DistrictFindFirstArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first District that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictFindFirstOrThrowArgs} args - Arguments to find a District
+     * @example
+     * // Get one District
+     * const district = await prisma.district.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DistrictFindFirstOrThrowArgs>(args?: SelectSubset<T, DistrictFindFirstOrThrowArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Districts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Districts
+     * const districts = await prisma.district.findMany()
+     * 
+     * // Get first 10 Districts
+     * const districts = await prisma.district.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const districtWithIdOnly = await prisma.district.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DistrictFindManyArgs>(args?: SelectSubset<T, DistrictFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a District.
+     * @param {DistrictCreateArgs} args - Arguments to create a District.
+     * @example
+     * // Create one District
+     * const District = await prisma.district.create({
+     *   data: {
+     *     // ... data to create a District
+     *   }
+     * })
+     * 
+     */
+    create<T extends DistrictCreateArgs>(args: SelectSubset<T, DistrictCreateArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Districts.
+     * @param {DistrictCreateManyArgs} args - Arguments to create many Districts.
+     * @example
+     * // Create many Districts
+     * const district = await prisma.district.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DistrictCreateManyArgs>(args?: SelectSubset<T, DistrictCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Districts and returns the data saved in the database.
+     * @param {DistrictCreateManyAndReturnArgs} args - Arguments to create many Districts.
+     * @example
+     * // Create many Districts
+     * const district = await prisma.district.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Districts and only return the `id`
+     * const districtWithIdOnly = await prisma.district.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DistrictCreateManyAndReturnArgs>(args?: SelectSubset<T, DistrictCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a District.
+     * @param {DistrictDeleteArgs} args - Arguments to delete one District.
+     * @example
+     * // Delete one District
+     * const District = await prisma.district.delete({
+     *   where: {
+     *     // ... filter to delete one District
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DistrictDeleteArgs>(args: SelectSubset<T, DistrictDeleteArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one District.
+     * @param {DistrictUpdateArgs} args - Arguments to update one District.
+     * @example
+     * // Update one District
+     * const district = await prisma.district.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DistrictUpdateArgs>(args: SelectSubset<T, DistrictUpdateArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Districts.
+     * @param {DistrictDeleteManyArgs} args - Arguments to filter Districts to delete.
+     * @example
+     * // Delete a few Districts
+     * const { count } = await prisma.district.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DistrictDeleteManyArgs>(args?: SelectSubset<T, DistrictDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Districts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Districts
+     * const district = await prisma.district.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DistrictUpdateManyArgs>(args: SelectSubset<T, DistrictUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Districts and returns the data updated in the database.
+     * @param {DistrictUpdateManyAndReturnArgs} args - Arguments to update many Districts.
+     * @example
+     * // Update many Districts
+     * const district = await prisma.district.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Districts and only return the `id`
+     * const districtWithIdOnly = await prisma.district.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DistrictUpdateManyAndReturnArgs>(args: SelectSubset<T, DistrictUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one District.
+     * @param {DistrictUpsertArgs} args - Arguments to update or create a District.
+     * @example
+     * // Update or create a District
+     * const district = await prisma.district.upsert({
+     *   create: {
+     *     // ... data to create a District
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the District we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DistrictUpsertArgs>(args: SelectSubset<T, DistrictUpsertArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Districts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictCountArgs} args - Arguments to filter Districts to count.
+     * @example
+     * // Count the number of Districts
+     * const count = await prisma.district.count({
+     *   where: {
+     *     // ... the filter for the Districts we want to count
+     *   }
+     * })
+    **/
+    count<T extends DistrictCountArgs>(
+      args?: Subset<T, DistrictCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DistrictCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a District.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DistrictAggregateArgs>(args: Subset<T, DistrictAggregateArgs>): Prisma.PrismaPromise<GetDistrictAggregateType<T>>
+
+    /**
+     * Group by District.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DistrictGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DistrictGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DistrictGroupByArgs['orderBy'] }
+        : { orderBy?: DistrictGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DistrictGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDistrictGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the District model
+   */
+  readonly fields: DistrictFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for District.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DistrictClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    division<T extends DivisionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DivisionDefaultArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    upazilas<T extends District$upazilasArgs<ExtArgs> = {}>(args?: Subset<T, District$upazilasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the District model
+   */
+  interface DistrictFieldRefs {
+    readonly id: FieldRef<"District", 'String'>
+    readonly name: FieldRef<"District", 'String'>
+    readonly divisionId: FieldRef<"District", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * District findUnique
+   */
+  export type DistrictFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter, which District to fetch.
+     */
+    where: DistrictWhereUniqueInput
+  }
+
+  /**
+   * District findUniqueOrThrow
+   */
+  export type DistrictFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter, which District to fetch.
+     */
+    where: DistrictWhereUniqueInput
+  }
+
+  /**
+   * District findFirst
+   */
+  export type DistrictFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter, which District to fetch.
+     */
+    where?: DistrictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Districts to fetch.
+     */
+    orderBy?: DistrictOrderByWithRelationInput | DistrictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Districts.
+     */
+    cursor?: DistrictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Districts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Districts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Districts.
+     */
+    distinct?: DistrictScalarFieldEnum | DistrictScalarFieldEnum[]
+  }
+
+  /**
+   * District findFirstOrThrow
+   */
+  export type DistrictFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter, which District to fetch.
+     */
+    where?: DistrictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Districts to fetch.
+     */
+    orderBy?: DistrictOrderByWithRelationInput | DistrictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Districts.
+     */
+    cursor?: DistrictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Districts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Districts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Districts.
+     */
+    distinct?: DistrictScalarFieldEnum | DistrictScalarFieldEnum[]
+  }
+
+  /**
+   * District findMany
+   */
+  export type DistrictFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter, which Districts to fetch.
+     */
+    where?: DistrictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Districts to fetch.
+     */
+    orderBy?: DistrictOrderByWithRelationInput | DistrictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Districts.
+     */
+    cursor?: DistrictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Districts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Districts.
+     */
+    skip?: number
+    distinct?: DistrictScalarFieldEnum | DistrictScalarFieldEnum[]
+  }
+
+  /**
+   * District create
+   */
+  export type DistrictCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * The data needed to create a District.
+     */
+    data: XOR<DistrictCreateInput, DistrictUncheckedCreateInput>
+  }
+
+  /**
+   * District createMany
+   */
+  export type DistrictCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Districts.
+     */
+    data: DistrictCreateManyInput | DistrictCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * District createManyAndReturn
+   */
+  export type DistrictCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * The data used to create many Districts.
+     */
+    data: DistrictCreateManyInput | DistrictCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * District update
+   */
+  export type DistrictUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * The data needed to update a District.
+     */
+    data: XOR<DistrictUpdateInput, DistrictUncheckedUpdateInput>
+    /**
+     * Choose, which District to update.
+     */
+    where: DistrictWhereUniqueInput
+  }
+
+  /**
+   * District updateMany
+   */
+  export type DistrictUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Districts.
+     */
+    data: XOR<DistrictUpdateManyMutationInput, DistrictUncheckedUpdateManyInput>
+    /**
+     * Filter which Districts to update
+     */
+    where?: DistrictWhereInput
+    /**
+     * Limit how many Districts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * District updateManyAndReturn
+   */
+  export type DistrictUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * The data used to update Districts.
+     */
+    data: XOR<DistrictUpdateManyMutationInput, DistrictUncheckedUpdateManyInput>
+    /**
+     * Filter which Districts to update
+     */
+    where?: DistrictWhereInput
+    /**
+     * Limit how many Districts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * District upsert
+   */
+  export type DistrictUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * The filter to search for the District to update in case it exists.
+     */
+    where: DistrictWhereUniqueInput
+    /**
+     * In case the District found by the `where` argument doesn't exist, create a new District with this data.
+     */
+    create: XOR<DistrictCreateInput, DistrictUncheckedCreateInput>
+    /**
+     * In case the District was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DistrictUpdateInput, DistrictUncheckedUpdateInput>
+  }
+
+  /**
+   * District delete
+   */
+  export type DistrictDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+    /**
+     * Filter which District to delete.
+     */
+    where: DistrictWhereUniqueInput
+  }
+
+  /**
+   * District deleteMany
+   */
+  export type DistrictDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Districts to delete
+     */
+    where?: DistrictWhereInput
+    /**
+     * Limit how many Districts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * District.upazilas
+   */
+  export type District$upazilasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    where?: UpazilaWhereInput
+    orderBy?: UpazilaOrderByWithRelationInput | UpazilaOrderByWithRelationInput[]
+    cursor?: UpazilaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UpazilaScalarFieldEnum | UpazilaScalarFieldEnum[]
+  }
+
+  /**
+   * District without action
+   */
+  export type DistrictDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the District
+     */
+    select?: DistrictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the District
+     */
+    omit?: DistrictOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DistrictInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Upazila
+   */
+
+  export type AggregateUpazila = {
+    _count: UpazilaCountAggregateOutputType | null
+    _min: UpazilaMinAggregateOutputType | null
+    _max: UpazilaMaxAggregateOutputType | null
+  }
+
+  export type UpazilaMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    districtId: string | null
+  }
+
+  export type UpazilaMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    districtId: string | null
+  }
+
+  export type UpazilaCountAggregateOutputType = {
+    id: number
+    name: number
+    districtId: number
+    _all: number
+  }
+
+
+  export type UpazilaMinAggregateInputType = {
+    id?: true
+    name?: true
+    districtId?: true
+  }
+
+  export type UpazilaMaxAggregateInputType = {
+    id?: true
+    name?: true
+    districtId?: true
+  }
+
+  export type UpazilaCountAggregateInputType = {
+    id?: true
+    name?: true
+    districtId?: true
+    _all?: true
+  }
+
+  export type UpazilaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Upazila to aggregate.
+     */
+    where?: UpazilaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Upazilas to fetch.
+     */
+    orderBy?: UpazilaOrderByWithRelationInput | UpazilaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UpazilaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Upazilas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Upazilas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Upazilas
+    **/
+    _count?: true | UpazilaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UpazilaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UpazilaMaxAggregateInputType
+  }
+
+  export type GetUpazilaAggregateType<T extends UpazilaAggregateArgs> = {
+        [P in keyof T & keyof AggregateUpazila]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUpazila[P]>
+      : GetScalarType<T[P], AggregateUpazila[P]>
+  }
+
+
+
+
+  export type UpazilaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UpazilaWhereInput
+    orderBy?: UpazilaOrderByWithAggregationInput | UpazilaOrderByWithAggregationInput[]
+    by: UpazilaScalarFieldEnum[] | UpazilaScalarFieldEnum
+    having?: UpazilaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UpazilaCountAggregateInputType | true
+    _min?: UpazilaMinAggregateInputType
+    _max?: UpazilaMaxAggregateInputType
+  }
+
+  export type UpazilaGroupByOutputType = {
+    id: string
+    name: string
+    districtId: string
+    _count: UpazilaCountAggregateOutputType | null
+    _min: UpazilaMinAggregateOutputType | null
+    _max: UpazilaMaxAggregateOutputType | null
+  }
+
+  type GetUpazilaGroupByPayload<T extends UpazilaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UpazilaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UpazilaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UpazilaGroupByOutputType[P]>
+            : GetScalarType<T[P], UpazilaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UpazilaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    districtId?: boolean
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upazila"]>
+
+  export type UpazilaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    districtId?: boolean
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upazila"]>
+
+  export type UpazilaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    districtId?: boolean
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upazila"]>
+
+  export type UpazilaSelectScalar = {
+    id?: boolean
+    name?: boolean
+    districtId?: boolean
+  }
+
+  export type UpazilaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "districtId", ExtArgs["result"]["upazila"]>
+  export type UpazilaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }
+  export type UpazilaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }
+  export type UpazilaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    district?: boolean | DistrictDefaultArgs<ExtArgs>
+  }
+
+  export type $UpazilaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Upazila"
+    objects: {
+      district: Prisma.$DistrictPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      districtId: string
+    }, ExtArgs["result"]["upazila"]>
+    composites: {}
+  }
+
+  type UpazilaGetPayload<S extends boolean | null | undefined | UpazilaDefaultArgs> = $Result.GetResult<Prisma.$UpazilaPayload, S>
+
+  type UpazilaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UpazilaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UpazilaCountAggregateInputType | true
+    }
+
+  export interface UpazilaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Upazila'], meta: { name: 'Upazila' } }
+    /**
+     * Find zero or one Upazila that matches the filter.
+     * @param {UpazilaFindUniqueArgs} args - Arguments to find a Upazila
+     * @example
+     * // Get one Upazila
+     * const upazila = await prisma.upazila.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UpazilaFindUniqueArgs>(args: SelectSubset<T, UpazilaFindUniqueArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Upazila that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UpazilaFindUniqueOrThrowArgs} args - Arguments to find a Upazila
+     * @example
+     * // Get one Upazila
+     * const upazila = await prisma.upazila.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UpazilaFindUniqueOrThrowArgs>(args: SelectSubset<T, UpazilaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Upazila that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaFindFirstArgs} args - Arguments to find a Upazila
+     * @example
+     * // Get one Upazila
+     * const upazila = await prisma.upazila.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UpazilaFindFirstArgs>(args?: SelectSubset<T, UpazilaFindFirstArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Upazila that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaFindFirstOrThrowArgs} args - Arguments to find a Upazila
+     * @example
+     * // Get one Upazila
+     * const upazila = await prisma.upazila.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UpazilaFindFirstOrThrowArgs>(args?: SelectSubset<T, UpazilaFindFirstOrThrowArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Upazilas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Upazilas
+     * const upazilas = await prisma.upazila.findMany()
+     * 
+     * // Get first 10 Upazilas
+     * const upazilas = await prisma.upazila.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const upazilaWithIdOnly = await prisma.upazila.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UpazilaFindManyArgs>(args?: SelectSubset<T, UpazilaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Upazila.
+     * @param {UpazilaCreateArgs} args - Arguments to create a Upazila.
+     * @example
+     * // Create one Upazila
+     * const Upazila = await prisma.upazila.create({
+     *   data: {
+     *     // ... data to create a Upazila
+     *   }
+     * })
+     * 
+     */
+    create<T extends UpazilaCreateArgs>(args: SelectSubset<T, UpazilaCreateArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Upazilas.
+     * @param {UpazilaCreateManyArgs} args - Arguments to create many Upazilas.
+     * @example
+     * // Create many Upazilas
+     * const upazila = await prisma.upazila.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UpazilaCreateManyArgs>(args?: SelectSubset<T, UpazilaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Upazilas and returns the data saved in the database.
+     * @param {UpazilaCreateManyAndReturnArgs} args - Arguments to create many Upazilas.
+     * @example
+     * // Create many Upazilas
+     * const upazila = await prisma.upazila.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Upazilas and only return the `id`
+     * const upazilaWithIdOnly = await prisma.upazila.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UpazilaCreateManyAndReturnArgs>(args?: SelectSubset<T, UpazilaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Upazila.
+     * @param {UpazilaDeleteArgs} args - Arguments to delete one Upazila.
+     * @example
+     * // Delete one Upazila
+     * const Upazila = await prisma.upazila.delete({
+     *   where: {
+     *     // ... filter to delete one Upazila
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UpazilaDeleteArgs>(args: SelectSubset<T, UpazilaDeleteArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Upazila.
+     * @param {UpazilaUpdateArgs} args - Arguments to update one Upazila.
+     * @example
+     * // Update one Upazila
+     * const upazila = await prisma.upazila.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UpazilaUpdateArgs>(args: SelectSubset<T, UpazilaUpdateArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Upazilas.
+     * @param {UpazilaDeleteManyArgs} args - Arguments to filter Upazilas to delete.
+     * @example
+     * // Delete a few Upazilas
+     * const { count } = await prisma.upazila.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UpazilaDeleteManyArgs>(args?: SelectSubset<T, UpazilaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Upazilas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Upazilas
+     * const upazila = await prisma.upazila.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UpazilaUpdateManyArgs>(args: SelectSubset<T, UpazilaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Upazilas and returns the data updated in the database.
+     * @param {UpazilaUpdateManyAndReturnArgs} args - Arguments to update many Upazilas.
+     * @example
+     * // Update many Upazilas
+     * const upazila = await prisma.upazila.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Upazilas and only return the `id`
+     * const upazilaWithIdOnly = await prisma.upazila.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UpazilaUpdateManyAndReturnArgs>(args: SelectSubset<T, UpazilaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Upazila.
+     * @param {UpazilaUpsertArgs} args - Arguments to update or create a Upazila.
+     * @example
+     * // Update or create a Upazila
+     * const upazila = await prisma.upazila.upsert({
+     *   create: {
+     *     // ... data to create a Upazila
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Upazila we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UpazilaUpsertArgs>(args: SelectSubset<T, UpazilaUpsertArgs<ExtArgs>>): Prisma__UpazilaClient<$Result.GetResult<Prisma.$UpazilaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Upazilas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaCountArgs} args - Arguments to filter Upazilas to count.
+     * @example
+     * // Count the number of Upazilas
+     * const count = await prisma.upazila.count({
+     *   where: {
+     *     // ... the filter for the Upazilas we want to count
+     *   }
+     * })
+    **/
+    count<T extends UpazilaCountArgs>(
+      args?: Subset<T, UpazilaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UpazilaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Upazila.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UpazilaAggregateArgs>(args: Subset<T, UpazilaAggregateArgs>): Prisma.PrismaPromise<GetUpazilaAggregateType<T>>
+
+    /**
+     * Group by Upazila.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpazilaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UpazilaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UpazilaGroupByArgs['orderBy'] }
+        : { orderBy?: UpazilaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UpazilaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUpazilaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Upazila model
+   */
+  readonly fields: UpazilaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Upazila.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UpazilaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    district<T extends DistrictDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DistrictDefaultArgs<ExtArgs>>): Prisma__DistrictClient<$Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Upazila model
+   */
+  interface UpazilaFieldRefs {
+    readonly id: FieldRef<"Upazila", 'String'>
+    readonly name: FieldRef<"Upazila", 'String'>
+    readonly districtId: FieldRef<"Upazila", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Upazila findUnique
+   */
+  export type UpazilaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter, which Upazila to fetch.
+     */
+    where: UpazilaWhereUniqueInput
+  }
+
+  /**
+   * Upazila findUniqueOrThrow
+   */
+  export type UpazilaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter, which Upazila to fetch.
+     */
+    where: UpazilaWhereUniqueInput
+  }
+
+  /**
+   * Upazila findFirst
+   */
+  export type UpazilaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter, which Upazila to fetch.
+     */
+    where?: UpazilaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Upazilas to fetch.
+     */
+    orderBy?: UpazilaOrderByWithRelationInput | UpazilaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Upazilas.
+     */
+    cursor?: UpazilaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Upazilas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Upazilas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Upazilas.
+     */
+    distinct?: UpazilaScalarFieldEnum | UpazilaScalarFieldEnum[]
+  }
+
+  /**
+   * Upazila findFirstOrThrow
+   */
+  export type UpazilaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter, which Upazila to fetch.
+     */
+    where?: UpazilaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Upazilas to fetch.
+     */
+    orderBy?: UpazilaOrderByWithRelationInput | UpazilaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Upazilas.
+     */
+    cursor?: UpazilaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Upazilas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Upazilas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Upazilas.
+     */
+    distinct?: UpazilaScalarFieldEnum | UpazilaScalarFieldEnum[]
+  }
+
+  /**
+   * Upazila findMany
+   */
+  export type UpazilaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter, which Upazilas to fetch.
+     */
+    where?: UpazilaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Upazilas to fetch.
+     */
+    orderBy?: UpazilaOrderByWithRelationInput | UpazilaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Upazilas.
+     */
+    cursor?: UpazilaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Upazilas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Upazilas.
+     */
+    skip?: number
+    distinct?: UpazilaScalarFieldEnum | UpazilaScalarFieldEnum[]
+  }
+
+  /**
+   * Upazila create
+   */
+  export type UpazilaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Upazila.
+     */
+    data: XOR<UpazilaCreateInput, UpazilaUncheckedCreateInput>
+  }
+
+  /**
+   * Upazila createMany
+   */
+  export type UpazilaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Upazilas.
+     */
+    data: UpazilaCreateManyInput | UpazilaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Upazila createManyAndReturn
+   */
+  export type UpazilaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Upazilas.
+     */
+    data: UpazilaCreateManyInput | UpazilaCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Upazila update
+   */
+  export type UpazilaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Upazila.
+     */
+    data: XOR<UpazilaUpdateInput, UpazilaUncheckedUpdateInput>
+    /**
+     * Choose, which Upazila to update.
+     */
+    where: UpazilaWhereUniqueInput
+  }
+
+  /**
+   * Upazila updateMany
+   */
+  export type UpazilaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Upazilas.
+     */
+    data: XOR<UpazilaUpdateManyMutationInput, UpazilaUncheckedUpdateManyInput>
+    /**
+     * Filter which Upazilas to update
+     */
+    where?: UpazilaWhereInput
+    /**
+     * Limit how many Upazilas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Upazila updateManyAndReturn
+   */
+  export type UpazilaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * The data used to update Upazilas.
+     */
+    data: XOR<UpazilaUpdateManyMutationInput, UpazilaUncheckedUpdateManyInput>
+    /**
+     * Filter which Upazilas to update
+     */
+    where?: UpazilaWhereInput
+    /**
+     * Limit how many Upazilas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Upazila upsert
+   */
+  export type UpazilaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Upazila to update in case it exists.
+     */
+    where: UpazilaWhereUniqueInput
+    /**
+     * In case the Upazila found by the `where` argument doesn't exist, create a new Upazila with this data.
+     */
+    create: XOR<UpazilaCreateInput, UpazilaUncheckedCreateInput>
+    /**
+     * In case the Upazila was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UpazilaUpdateInput, UpazilaUncheckedUpdateInput>
+  }
+
+  /**
+   * Upazila delete
+   */
+  export type UpazilaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+    /**
+     * Filter which Upazila to delete.
+     */
+    where: UpazilaWhereUniqueInput
+  }
+
+  /**
+   * Upazila deleteMany
+   */
+  export type UpazilaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Upazilas to delete
+     */
+    where?: UpazilaWhereInput
+    /**
+     * Limit how many Upazilas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Upazila without action
+   */
+  export type UpazilaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Upazila
+     */
+    select?: UpazilaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Upazila
+     */
+    omit?: UpazilaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpazilaInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9903,6 +13363,32 @@ export namespace Prisma {
   };
 
   export type AvailableLocationScalarFieldEnum = (typeof AvailableLocationScalarFieldEnum)[keyof typeof AvailableLocationScalarFieldEnum]
+
+
+  export const DivisionScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type DivisionScalarFieldEnum = (typeof DivisionScalarFieldEnum)[keyof typeof DivisionScalarFieldEnum]
+
+
+  export const DistrictScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    divisionId: 'divisionId'
+  };
+
+  export type DistrictScalarFieldEnum = (typeof DistrictScalarFieldEnum)[keyof typeof DistrictScalarFieldEnum]
+
+
+  export const UpazilaScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    districtId: 'districtId'
+  };
+
+  export type UpazilaScalarFieldEnum = (typeof UpazilaScalarFieldEnum)[keyof typeof UpazilaScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10580,6 +14066,139 @@ export namespace Prisma {
     address?: StringWithAggregatesFilter<"AvailableLocation"> | string
   }
 
+  export type DivisionWhereInput = {
+    AND?: DivisionWhereInput | DivisionWhereInput[]
+    OR?: DivisionWhereInput[]
+    NOT?: DivisionWhereInput | DivisionWhereInput[]
+    id?: StringFilter<"Division"> | string
+    name?: StringFilter<"Division"> | string
+    districts?: DistrictListRelationFilter
+  }
+
+  export type DivisionOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districts?: DistrictOrderByRelationAggregateInput
+  }
+
+  export type DivisionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DivisionWhereInput | DivisionWhereInput[]
+    OR?: DivisionWhereInput[]
+    NOT?: DivisionWhereInput | DivisionWhereInput[]
+    name?: StringFilter<"Division"> | string
+    districts?: DistrictListRelationFilter
+  }, "id">
+
+  export type DivisionOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: DivisionCountOrderByAggregateInput
+    _max?: DivisionMaxOrderByAggregateInput
+    _min?: DivisionMinOrderByAggregateInput
+  }
+
+  export type DivisionScalarWhereWithAggregatesInput = {
+    AND?: DivisionScalarWhereWithAggregatesInput | DivisionScalarWhereWithAggregatesInput[]
+    OR?: DivisionScalarWhereWithAggregatesInput[]
+    NOT?: DivisionScalarWhereWithAggregatesInput | DivisionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Division"> | string
+    name?: StringWithAggregatesFilter<"Division"> | string
+  }
+
+  export type DistrictWhereInput = {
+    AND?: DistrictWhereInput | DistrictWhereInput[]
+    OR?: DistrictWhereInput[]
+    NOT?: DistrictWhereInput | DistrictWhereInput[]
+    id?: StringFilter<"District"> | string
+    name?: StringFilter<"District"> | string
+    divisionId?: StringFilter<"District"> | string
+    division?: XOR<DivisionScalarRelationFilter, DivisionWhereInput>
+    upazilas?: UpazilaListRelationFilter
+  }
+
+  export type DistrictOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    divisionId?: SortOrder
+    division?: DivisionOrderByWithRelationInput
+    upazilas?: UpazilaOrderByRelationAggregateInput
+  }
+
+  export type DistrictWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DistrictWhereInput | DistrictWhereInput[]
+    OR?: DistrictWhereInput[]
+    NOT?: DistrictWhereInput | DistrictWhereInput[]
+    name?: StringFilter<"District"> | string
+    divisionId?: StringFilter<"District"> | string
+    division?: XOR<DivisionScalarRelationFilter, DivisionWhereInput>
+    upazilas?: UpazilaListRelationFilter
+  }, "id">
+
+  export type DistrictOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    divisionId?: SortOrder
+    _count?: DistrictCountOrderByAggregateInput
+    _max?: DistrictMaxOrderByAggregateInput
+    _min?: DistrictMinOrderByAggregateInput
+  }
+
+  export type DistrictScalarWhereWithAggregatesInput = {
+    AND?: DistrictScalarWhereWithAggregatesInput | DistrictScalarWhereWithAggregatesInput[]
+    OR?: DistrictScalarWhereWithAggregatesInput[]
+    NOT?: DistrictScalarWhereWithAggregatesInput | DistrictScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"District"> | string
+    name?: StringWithAggregatesFilter<"District"> | string
+    divisionId?: StringWithAggregatesFilter<"District"> | string
+  }
+
+  export type UpazilaWhereInput = {
+    AND?: UpazilaWhereInput | UpazilaWhereInput[]
+    OR?: UpazilaWhereInput[]
+    NOT?: UpazilaWhereInput | UpazilaWhereInput[]
+    id?: StringFilter<"Upazila"> | string
+    name?: StringFilter<"Upazila"> | string
+    districtId?: StringFilter<"Upazila"> | string
+    district?: XOR<DistrictScalarRelationFilter, DistrictWhereInput>
+  }
+
+  export type UpazilaOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districtId?: SortOrder
+    district?: DistrictOrderByWithRelationInput
+  }
+
+  export type UpazilaWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: UpazilaWhereInput | UpazilaWhereInput[]
+    OR?: UpazilaWhereInput[]
+    NOT?: UpazilaWhereInput | UpazilaWhereInput[]
+    name?: StringFilter<"Upazila"> | string
+    districtId?: StringFilter<"Upazila"> | string
+    district?: XOR<DistrictScalarRelationFilter, DistrictWhereInput>
+  }, "id">
+
+  export type UpazilaOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districtId?: SortOrder
+    _count?: UpazilaCountOrderByAggregateInput
+    _max?: UpazilaMaxOrderByAggregateInput
+    _min?: UpazilaMinOrderByAggregateInput
+  }
+
+  export type UpazilaScalarWhereWithAggregatesInput = {
+    AND?: UpazilaScalarWhereWithAggregatesInput | UpazilaScalarWhereWithAggregatesInput[]
+    OR?: UpazilaScalarWhereWithAggregatesInput[]
+    NOT?: UpazilaScalarWhereWithAggregatesInput | UpazilaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Upazila"> | string
+    name?: StringWithAggregatesFilter<"Upazila"> | string
+    districtId?: StringWithAggregatesFilter<"Upazila"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -11131,6 +14750,131 @@ export namespace Prisma {
     lat?: StringFieldUpdateOperationsInput | string
     lon?: FloatFieldUpdateOperationsInput | number
     address?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionCreateInput = {
+    id?: string
+    name: string
+    districts?: DistrictCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionUncheckedCreateInput = {
+    id?: string
+    name: string
+    districts?: DistrictUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    districts?: DistrictUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    districts?: DistrictUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionCreateManyInput = {
+    id?: string
+    name: string
+  }
+
+  export type DivisionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DistrictCreateInput = {
+    id?: string
+    name: string
+    division: DivisionCreateNestedOneWithoutDistrictsInput
+    upazilas?: UpazilaCreateNestedManyWithoutDistrictInput
+  }
+
+  export type DistrictUncheckedCreateInput = {
+    id?: string
+    name: string
+    divisionId: string
+    upazilas?: UpazilaUncheckedCreateNestedManyWithoutDistrictInput
+  }
+
+  export type DistrictUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    division?: DivisionUpdateOneRequiredWithoutDistrictsNestedInput
+    upazilas?: UpazilaUpdateManyWithoutDistrictNestedInput
+  }
+
+  export type DistrictUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    divisionId?: StringFieldUpdateOperationsInput | string
+    upazilas?: UpazilaUncheckedUpdateManyWithoutDistrictNestedInput
+  }
+
+  export type DistrictCreateManyInput = {
+    id?: string
+    name: string
+    divisionId: string
+  }
+
+  export type DistrictUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DistrictUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    divisionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaCreateInput = {
+    id?: string
+    name: string
+    district: DistrictCreateNestedOneWithoutUpazilasInput
+  }
+
+  export type UpazilaUncheckedCreateInput = {
+    id?: string
+    name: string
+    districtId: string
+  }
+
+  export type UpazilaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    district?: DistrictUpdateOneRequiredWithoutUpazilasNestedInput
+  }
+
+  export type UpazilaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    districtId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaCreateManyInput = {
+    id?: string
+    name: string
+    districtId: string
+  }
+
+  export type UpazilaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    districtId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -11716,6 +15460,87 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type DistrictListRelationFilter = {
+    every?: DistrictWhereInput
+    some?: DistrictWhereInput
+    none?: DistrictWhereInput
+  }
+
+  export type DistrictOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DivisionCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionScalarRelationFilter = {
+    is?: DivisionWhereInput
+    isNot?: DivisionWhereInput
+  }
+
+  export type UpazilaListRelationFilter = {
+    every?: UpazilaWhereInput
+    some?: UpazilaWhereInput
+    none?: UpazilaWhereInput
+  }
+
+  export type UpazilaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DistrictCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DistrictMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DistrictMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DistrictScalarRelationFilter = {
+    is?: DistrictWhereInput
+    isNot?: DistrictWhereInput
+  }
+
+  export type UpazilaCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districtId?: SortOrder
+  }
+
+  export type UpazilaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districtId?: SortOrder
+  }
+
+  export type UpazilaMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    districtId?: SortOrder
   }
 
   export type BookingCreateNestedManyWithoutUserInput = {
@@ -12352,6 +16177,118 @@ export namespace Prisma {
     update?: ServiceProviderUpdateWithWhereUniqueWithoutLocationInput | ServiceProviderUpdateWithWhereUniqueWithoutLocationInput[]
     updateMany?: ServiceProviderUpdateManyWithWhereWithoutLocationInput | ServiceProviderUpdateManyWithWhereWithoutLocationInput[]
     deleteMany?: ServiceProviderScalarWhereInput | ServiceProviderScalarWhereInput[]
+  }
+
+  export type DistrictCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput> | DistrictCreateWithoutDivisionInput[] | DistrictUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DistrictCreateOrConnectWithoutDivisionInput | DistrictCreateOrConnectWithoutDivisionInput[]
+    createMany?: DistrictCreateManyDivisionInputEnvelope
+    connect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+  }
+
+  export type DistrictUncheckedCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput> | DistrictCreateWithoutDivisionInput[] | DistrictUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DistrictCreateOrConnectWithoutDivisionInput | DistrictCreateOrConnectWithoutDivisionInput[]
+    createMany?: DistrictCreateManyDivisionInputEnvelope
+    connect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+  }
+
+  export type DistrictUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput> | DistrictCreateWithoutDivisionInput[] | DistrictUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DistrictCreateOrConnectWithoutDivisionInput | DistrictCreateOrConnectWithoutDivisionInput[]
+    upsert?: DistrictUpsertWithWhereUniqueWithoutDivisionInput | DistrictUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DistrictCreateManyDivisionInputEnvelope
+    set?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    disconnect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    delete?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    connect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    update?: DistrictUpdateWithWhereUniqueWithoutDivisionInput | DistrictUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DistrictUpdateManyWithWhereWithoutDivisionInput | DistrictUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DistrictScalarWhereInput | DistrictScalarWhereInput[]
+  }
+
+  export type DistrictUncheckedUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput> | DistrictCreateWithoutDivisionInput[] | DistrictUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DistrictCreateOrConnectWithoutDivisionInput | DistrictCreateOrConnectWithoutDivisionInput[]
+    upsert?: DistrictUpsertWithWhereUniqueWithoutDivisionInput | DistrictUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DistrictCreateManyDivisionInputEnvelope
+    set?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    disconnect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    delete?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    connect?: DistrictWhereUniqueInput | DistrictWhereUniqueInput[]
+    update?: DistrictUpdateWithWhereUniqueWithoutDivisionInput | DistrictUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DistrictUpdateManyWithWhereWithoutDivisionInput | DistrictUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DistrictScalarWhereInput | DistrictScalarWhereInput[]
+  }
+
+  export type DivisionCreateNestedOneWithoutDistrictsInput = {
+    create?: XOR<DivisionCreateWithoutDistrictsInput, DivisionUncheckedCreateWithoutDistrictsInput>
+    connectOrCreate?: DivisionCreateOrConnectWithoutDistrictsInput
+    connect?: DivisionWhereUniqueInput
+  }
+
+  export type UpazilaCreateNestedManyWithoutDistrictInput = {
+    create?: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput> | UpazilaCreateWithoutDistrictInput[] | UpazilaUncheckedCreateWithoutDistrictInput[]
+    connectOrCreate?: UpazilaCreateOrConnectWithoutDistrictInput | UpazilaCreateOrConnectWithoutDistrictInput[]
+    createMany?: UpazilaCreateManyDistrictInputEnvelope
+    connect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+  }
+
+  export type UpazilaUncheckedCreateNestedManyWithoutDistrictInput = {
+    create?: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput> | UpazilaCreateWithoutDistrictInput[] | UpazilaUncheckedCreateWithoutDistrictInput[]
+    connectOrCreate?: UpazilaCreateOrConnectWithoutDistrictInput | UpazilaCreateOrConnectWithoutDistrictInput[]
+    createMany?: UpazilaCreateManyDistrictInputEnvelope
+    connect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+  }
+
+  export type DivisionUpdateOneRequiredWithoutDistrictsNestedInput = {
+    create?: XOR<DivisionCreateWithoutDistrictsInput, DivisionUncheckedCreateWithoutDistrictsInput>
+    connectOrCreate?: DivisionCreateOrConnectWithoutDistrictsInput
+    upsert?: DivisionUpsertWithoutDistrictsInput
+    connect?: DivisionWhereUniqueInput
+    update?: XOR<XOR<DivisionUpdateToOneWithWhereWithoutDistrictsInput, DivisionUpdateWithoutDistrictsInput>, DivisionUncheckedUpdateWithoutDistrictsInput>
+  }
+
+  export type UpazilaUpdateManyWithoutDistrictNestedInput = {
+    create?: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput> | UpazilaCreateWithoutDistrictInput[] | UpazilaUncheckedCreateWithoutDistrictInput[]
+    connectOrCreate?: UpazilaCreateOrConnectWithoutDistrictInput | UpazilaCreateOrConnectWithoutDistrictInput[]
+    upsert?: UpazilaUpsertWithWhereUniqueWithoutDistrictInput | UpazilaUpsertWithWhereUniqueWithoutDistrictInput[]
+    createMany?: UpazilaCreateManyDistrictInputEnvelope
+    set?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    disconnect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    delete?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    connect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    update?: UpazilaUpdateWithWhereUniqueWithoutDistrictInput | UpazilaUpdateWithWhereUniqueWithoutDistrictInput[]
+    updateMany?: UpazilaUpdateManyWithWhereWithoutDistrictInput | UpazilaUpdateManyWithWhereWithoutDistrictInput[]
+    deleteMany?: UpazilaScalarWhereInput | UpazilaScalarWhereInput[]
+  }
+
+  export type UpazilaUncheckedUpdateManyWithoutDistrictNestedInput = {
+    create?: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput> | UpazilaCreateWithoutDistrictInput[] | UpazilaUncheckedCreateWithoutDistrictInput[]
+    connectOrCreate?: UpazilaCreateOrConnectWithoutDistrictInput | UpazilaCreateOrConnectWithoutDistrictInput[]
+    upsert?: UpazilaUpsertWithWhereUniqueWithoutDistrictInput | UpazilaUpsertWithWhereUniqueWithoutDistrictInput[]
+    createMany?: UpazilaCreateManyDistrictInputEnvelope
+    set?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    disconnect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    delete?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    connect?: UpazilaWhereUniqueInput | UpazilaWhereUniqueInput[]
+    update?: UpazilaUpdateWithWhereUniqueWithoutDistrictInput | UpazilaUpdateWithWhereUniqueWithoutDistrictInput[]
+    updateMany?: UpazilaUpdateManyWithWhereWithoutDistrictInput | UpazilaUpdateManyWithWhereWithoutDistrictInput[]
+    deleteMany?: UpazilaScalarWhereInput | UpazilaScalarWhereInput[]
+  }
+
+  export type DistrictCreateNestedOneWithoutUpazilasInput = {
+    create?: XOR<DistrictCreateWithoutUpazilasInput, DistrictUncheckedCreateWithoutUpazilasInput>
+    connectOrCreate?: DistrictCreateOrConnectWithoutUpazilasInput
+    connect?: DistrictWhereUniqueInput
+  }
+
+  export type DistrictUpdateOneRequiredWithoutUpazilasNestedInput = {
+    create?: XOR<DistrictCreateWithoutUpazilasInput, DistrictUncheckedCreateWithoutUpazilasInput>
+    connectOrCreate?: DistrictCreateOrConnectWithoutUpazilasInput
+    upsert?: DistrictUpsertWithoutUpazilasInput
+    connect?: DistrictWhereUniqueInput
+    update?: XOR<XOR<DistrictUpdateToOneWithWhereWithoutUpazilasInput, DistrictUpdateWithoutUpazilasInput>, DistrictUncheckedUpdateWithoutUpazilasInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -13796,6 +17733,174 @@ export namespace Prisma {
     data: XOR<ServiceProviderUpdateManyMutationInput, ServiceProviderUncheckedUpdateManyWithoutLocationInput>
   }
 
+  export type DistrictCreateWithoutDivisionInput = {
+    id?: string
+    name: string
+    upazilas?: UpazilaCreateNestedManyWithoutDistrictInput
+  }
+
+  export type DistrictUncheckedCreateWithoutDivisionInput = {
+    id?: string
+    name: string
+    upazilas?: UpazilaUncheckedCreateNestedManyWithoutDistrictInput
+  }
+
+  export type DistrictCreateOrConnectWithoutDivisionInput = {
+    where: DistrictWhereUniqueInput
+    create: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DistrictCreateManyDivisionInputEnvelope = {
+    data: DistrictCreateManyDivisionInput | DistrictCreateManyDivisionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DistrictUpsertWithWhereUniqueWithoutDivisionInput = {
+    where: DistrictWhereUniqueInput
+    update: XOR<DistrictUpdateWithoutDivisionInput, DistrictUncheckedUpdateWithoutDivisionInput>
+    create: XOR<DistrictCreateWithoutDivisionInput, DistrictUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DistrictUpdateWithWhereUniqueWithoutDivisionInput = {
+    where: DistrictWhereUniqueInput
+    data: XOR<DistrictUpdateWithoutDivisionInput, DistrictUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type DistrictUpdateManyWithWhereWithoutDivisionInput = {
+    where: DistrictScalarWhereInput
+    data: XOR<DistrictUpdateManyMutationInput, DistrictUncheckedUpdateManyWithoutDivisionInput>
+  }
+
+  export type DistrictScalarWhereInput = {
+    AND?: DistrictScalarWhereInput | DistrictScalarWhereInput[]
+    OR?: DistrictScalarWhereInput[]
+    NOT?: DistrictScalarWhereInput | DistrictScalarWhereInput[]
+    id?: StringFilter<"District"> | string
+    name?: StringFilter<"District"> | string
+    divisionId?: StringFilter<"District"> | string
+  }
+
+  export type DivisionCreateWithoutDistrictsInput = {
+    id?: string
+    name: string
+  }
+
+  export type DivisionUncheckedCreateWithoutDistrictsInput = {
+    id?: string
+    name: string
+  }
+
+  export type DivisionCreateOrConnectWithoutDistrictsInput = {
+    where: DivisionWhereUniqueInput
+    create: XOR<DivisionCreateWithoutDistrictsInput, DivisionUncheckedCreateWithoutDistrictsInput>
+  }
+
+  export type UpazilaCreateWithoutDistrictInput = {
+    id?: string
+    name: string
+  }
+
+  export type UpazilaUncheckedCreateWithoutDistrictInput = {
+    id?: string
+    name: string
+  }
+
+  export type UpazilaCreateOrConnectWithoutDistrictInput = {
+    where: UpazilaWhereUniqueInput
+    create: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput>
+  }
+
+  export type UpazilaCreateManyDistrictInputEnvelope = {
+    data: UpazilaCreateManyDistrictInput | UpazilaCreateManyDistrictInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DivisionUpsertWithoutDistrictsInput = {
+    update: XOR<DivisionUpdateWithoutDistrictsInput, DivisionUncheckedUpdateWithoutDistrictsInput>
+    create: XOR<DivisionCreateWithoutDistrictsInput, DivisionUncheckedCreateWithoutDistrictsInput>
+    where?: DivisionWhereInput
+  }
+
+  export type DivisionUpdateToOneWithWhereWithoutDistrictsInput = {
+    where?: DivisionWhereInput
+    data: XOR<DivisionUpdateWithoutDistrictsInput, DivisionUncheckedUpdateWithoutDistrictsInput>
+  }
+
+  export type DivisionUpdateWithoutDistrictsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionUncheckedUpdateWithoutDistrictsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaUpsertWithWhereUniqueWithoutDistrictInput = {
+    where: UpazilaWhereUniqueInput
+    update: XOR<UpazilaUpdateWithoutDistrictInput, UpazilaUncheckedUpdateWithoutDistrictInput>
+    create: XOR<UpazilaCreateWithoutDistrictInput, UpazilaUncheckedCreateWithoutDistrictInput>
+  }
+
+  export type UpazilaUpdateWithWhereUniqueWithoutDistrictInput = {
+    where: UpazilaWhereUniqueInput
+    data: XOR<UpazilaUpdateWithoutDistrictInput, UpazilaUncheckedUpdateWithoutDistrictInput>
+  }
+
+  export type UpazilaUpdateManyWithWhereWithoutDistrictInput = {
+    where: UpazilaScalarWhereInput
+    data: XOR<UpazilaUpdateManyMutationInput, UpazilaUncheckedUpdateManyWithoutDistrictInput>
+  }
+
+  export type UpazilaScalarWhereInput = {
+    AND?: UpazilaScalarWhereInput | UpazilaScalarWhereInput[]
+    OR?: UpazilaScalarWhereInput[]
+    NOT?: UpazilaScalarWhereInput | UpazilaScalarWhereInput[]
+    id?: StringFilter<"Upazila"> | string
+    name?: StringFilter<"Upazila"> | string
+    districtId?: StringFilter<"Upazila"> | string
+  }
+
+  export type DistrictCreateWithoutUpazilasInput = {
+    id?: string
+    name: string
+    division: DivisionCreateNestedOneWithoutDistrictsInput
+  }
+
+  export type DistrictUncheckedCreateWithoutUpazilasInput = {
+    id?: string
+    name: string
+    divisionId: string
+  }
+
+  export type DistrictCreateOrConnectWithoutUpazilasInput = {
+    where: DistrictWhereUniqueInput
+    create: XOR<DistrictCreateWithoutUpazilasInput, DistrictUncheckedCreateWithoutUpazilasInput>
+  }
+
+  export type DistrictUpsertWithoutUpazilasInput = {
+    update: XOR<DistrictUpdateWithoutUpazilasInput, DistrictUncheckedUpdateWithoutUpazilasInput>
+    create: XOR<DistrictCreateWithoutUpazilasInput, DistrictUncheckedCreateWithoutUpazilasInput>
+    where?: DistrictWhereInput
+  }
+
+  export type DistrictUpdateToOneWithWhereWithoutUpazilasInput = {
+    where?: DistrictWhereInput
+    data: XOR<DistrictUpdateWithoutUpazilasInput, DistrictUncheckedUpdateWithoutUpazilasInput>
+  }
+
+  export type DistrictUpdateWithoutUpazilasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    division?: DivisionUpdateOneRequiredWithoutDistrictsNestedInput
+  }
+
+  export type DistrictUncheckedUpdateWithoutUpazilasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    divisionId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type BookingCreateManyUserInput = {
     id?: string
     service_id: string
@@ -14207,6 +18312,48 @@ export namespace Prisma {
     rating?: IntFieldUpdateOperationsInput | number
     documents?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DistrictCreateManyDivisionInput = {
+    id?: string
+    name: string
+  }
+
+  export type DistrictUpdateWithoutDivisionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    upazilas?: UpazilaUpdateManyWithoutDistrictNestedInput
+  }
+
+  export type DistrictUncheckedUpdateWithoutDivisionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    upazilas?: UpazilaUncheckedUpdateManyWithoutDistrictNestedInput
+  }
+
+  export type DistrictUncheckedUpdateManyWithoutDivisionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaCreateManyDistrictInput = {
+    id?: string
+    name: string
+  }
+
+  export type UpazilaUpdateWithoutDistrictInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaUncheckedUpdateWithoutDistrictInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UpazilaUncheckedUpdateManyWithoutDistrictInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
   }
 
 

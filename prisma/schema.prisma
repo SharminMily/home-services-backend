@@ -104,25 +104,26 @@ model AvailableLocation {
 }
 
 model Division {
- id               String            @id @default(uuid())
-  name      String
-  districts District[]
+  id         String     @id @default(uuid())
+  name       String
+  districts  District[]
 }
 
 model District {
- id               String            @id @default(uuid())
-  name       String
-  division   Division  @relation(fields: [divisionId], references: [id])
-  divisionId Int
-  upazilas   Upazila[]
+  id          String     @id @default(uuid())
+  name        String
+  divisionId  String
+  division    Division   @relation(fields: [divisionId], references: [id])
+  upazilas    Upazila[]
 }
 
 model Upazila {
-  id               String            @id @default(uuid())
-  name       String
-  district   District  @relation(fields: [districtId], references: [id])
-  districtId Int
+  id          String     @id @default(uuid())
+  name        String
+  districtId  String
+  district    District   @relation(fields: [districtId], references: [id])
 }
+
 
 
 enum UserRole {
@@ -150,3 +151,4 @@ enum Status {
   cancelled
   failed
 }
+

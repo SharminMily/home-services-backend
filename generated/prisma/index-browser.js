@@ -194,6 +194,23 @@ exports.Prisma.AvailableLocationScalarFieldEnum = {
   address: 'address'
 };
 
+exports.Prisma.DivisionScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.DistrictScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  divisionId: 'divisionId'
+};
+
+exports.Prisma.UpazilaScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  districtId: 'districtId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -241,7 +258,10 @@ exports.Prisma.ModelName = {
   Categories: 'Categories',
   Booking: 'Booking',
   Review: 'Review',
-  AvailableLocation: 'AvailableLocation'
+  AvailableLocation: 'AvailableLocation',
+  Division: 'Division',
+  District: 'District',
+  Upazila: 'Upazila'
 };
 
 /**

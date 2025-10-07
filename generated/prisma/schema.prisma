@@ -103,6 +103,27 @@ model AvailableLocation {
   service_provider ServiceProvider[]
 }
 
+model Division {
+  id        String     @id @default(uuid())
+  name      String
+  districts District[]
+}
+
+model District {
+  id         String    @id @default(uuid())
+  name       String
+  divisionId String
+  division   Division  @relation(fields: [divisionId], references: [id])
+  upazilas   Upazila[]
+}
+
+model Upazila {
+  id         String   @id @default(uuid())
+  name       String
+  districtId String
+  district   District @relation(fields: [districtId], references: [id])
+}
+
 enum UserRole {
   admin
   user
