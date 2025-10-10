@@ -10,7 +10,7 @@ const router = express.Router()
 router.get('/:id', UserController.getByIdFromDB)
 
 router.post(
-  "/",
+  "/signup",
   fileUploader.upload.single("file"),
   (req: Request, res: Response, next: NextFunction) => {
     try {
