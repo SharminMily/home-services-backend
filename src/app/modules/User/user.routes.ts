@@ -3,6 +3,8 @@ import { UserController } from "./user.controller"
 
 import { userValidation } from "./user.validation"
 import { fileUploader } from "../../../helpers/fileUploder"
+import auth from "../../middlewares/Auth"
+import { UserRole } from "../../../../generated/prisma"
 
 const router = express.Router()
 
@@ -10,8 +12,9 @@ const router = express.Router()
 router.get('/:id', UserController.getByIdFromDB)
 
 router.post(
-  "/signup",
+  "/signup",  
   fileUploader.upload.single("file"),
+   auth(UserRole.user, UserRole.services_provider, UserRole.admin),
   (req: Request, res: Response, next: NextFunction) => {
     try {
       const bodyData =
