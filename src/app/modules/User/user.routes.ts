@@ -14,7 +14,7 @@ router.get('/:id', UserController.getByIdFromDB)
 router.post(
   "/signup",  
   fileUploader.upload.single("file"),
-   auth(UserRole.user, UserRole.services_provider, UserRole.admin),
+  //  auth(UserRole.user, UserRole.services_provider, UserRole.admin),
   (req: Request, res: Response, next: NextFunction) => {
     try {
       const bodyData =
