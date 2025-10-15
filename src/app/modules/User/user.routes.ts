@@ -1,6 +1,5 @@
 import express, {Response,Request,  NextFunction } from "express"
 import { UserController } from "./user.controller"
-
 import { userValidation } from "./user.validation"
 import { fileUploader } from "../../../helpers/fileUploder"
 import auth from "../../middlewares/Auth"

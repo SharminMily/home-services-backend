@@ -61,7 +61,6 @@ const allServiceFromDb = async (
     andConditions.push(...filterConditions);
   }
 
-
   // andConditions.push({ isDeleted: false });
 
   const whereConditions: Prisma.ServiceWhereInput =
