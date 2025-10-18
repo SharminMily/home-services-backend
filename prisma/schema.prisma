@@ -12,7 +12,7 @@ model User {
   id               String            @id @default(uuid())
   name             String
   email            String            @unique
-  phone            Int?
+  phone            String?
   photo            String?
   password         String
   // needPasswordChange Boolean? @default(true)
