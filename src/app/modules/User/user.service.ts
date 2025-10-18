@@ -33,7 +33,7 @@ const createUser = async (req: userRequest) => {
     email: payload.email,
     photo: payload.photo,
     password: hashPassword,
-    phone: payload.phone ? Number(payload.phone) : null,
+    phone: payload.phone,
     gender:  Gender[payload.gender as keyof typeof Gender] ?? null,
     address: payload.address, 
   }
