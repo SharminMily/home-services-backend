@@ -127,12 +127,12 @@ exports.Prisma.UserScalarFieldEnum = {
   phone: 'phone',
   photo: 'photo',
   password: 'password',
-  address: 'address',
   gender: 'gender',
   role: 'role',
   status: 'status',
   createdAt: 'createdAt',
-  updateAt: 'updateAt'
+  updateAt: 'updateAt',
+  address: 'address'
 };
 
 exports.Prisma.ServiceScalarFieldEnum = {
@@ -159,10 +159,10 @@ exports.Prisma.ServiceProviderScalarFieldEnum = {
 exports.Prisma.CategoriesScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  image: 'image',
   popular: 'popular',
   featured: 'featured',
-  latest: 'latest'
+  latest: 'latest',
+  image: 'image'
 };
 
 exports.Prisma.BookingScalarFieldEnum = {

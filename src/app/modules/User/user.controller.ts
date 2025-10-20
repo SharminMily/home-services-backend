@@ -10,6 +10,10 @@ const createUser = catchAsynce(async (req, res) => {
     success: true,
     message: "user created successfully",   
     data: result,
+    //  data: {
+    //   user: result.user,
+    //   accessToken: result.accessToken,
+    // },
   });
 });
 

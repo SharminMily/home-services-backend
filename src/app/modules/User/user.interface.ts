@@ -5,7 +5,7 @@ export type TUser = {
   id?: string;
   name: string;
   email: string;
-  phone?: number | null;
+  phone?: string | null;
   photo?: string | null;
   password: string;
   address: string; 
@@ -15,7 +15,7 @@ export type TUser = {
 };
 export type TUserUpdate = {
   name: string ;
-  phone?: number | null;
+  phone?: string | null;
   photo?: string | null;  
   address: string;  
   createdAt?: Date;

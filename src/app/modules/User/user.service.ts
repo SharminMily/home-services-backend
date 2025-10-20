@@ -1,11 +1,12 @@
 import httpStatus from "http-status";
 import AppError from "../../../shared/AppError";
-import { prisma } from "../../../shared/prismaClient";
+
 import { TUser, TUserUpdate, userRequest } from "./user.interface";
 import  bcrypt from "bcrypt"
 import { Gender } from "../../../../generated/prisma";
 import { IFile } from "../../interfaces/file";
 import { fileUploader } from "../../../helpers/fileUploder";
+import { prisma } from "../../../shared/prismaClient";
 
 const createUser = async (req: userRequest) => {
   const file = req.file;
