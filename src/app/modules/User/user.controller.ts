@@ -5,15 +5,20 @@ import httpStatus from "http-status";
 
 const createUser = catchAsynce(async (req, res) => {
   const result = await UserServices.createUser(req);
+   // refresh token cookie te set
+  res.cookie('refreshToken', result.refreshToken, {
+    secure: false, // production hole true
+    httpOnly: true,
+  });
+
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: "user created successfully",   
-    data: result,
-    //  data: {
-    //   user: result.user,
-    //   accessToken: result.accessToken,
-    // },
+    message: "User created successfully",
+    data: {
+      user: result.user,
+      accessToken: result.accessToken,
+    },
   });
 });
 

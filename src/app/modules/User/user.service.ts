@@ -1,23 +1,22 @@
 import httpStatus from "http-status";
 import AppError from "../../../shared/AppError";
-
 import { TUser, TUserUpdate, userRequest } from "./user.interface";
 import  bcrypt from "bcrypt"
-import { Gender } from "../../../../generated/prisma";
-import { IFile } from "../../interfaces/file";
+import { Gender, UserRole, UserStatus } from "../../../../generated/prisma";
 import { fileUploader } from "../../../helpers/fileUploder";
 import { prisma } from "../../../shared/prismaClient";
+import { generateAuthTokens } from "../../../helpers/tokenGenerator";
 
 const createUser = async (req: userRequest) => {
   const file = req.file;
   if(file){
     const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
     req.body.photo = uploadToCloudinary?.secure_url
-     console.log(req.body)
+    //  console.log(req.body)
   }
 
   const hashPassword: string = await  bcrypt.hash(req.body.password, 12)
-  console.log(hashPassword)
+  // console.log(hashPassword)
 
   const existingUser = await prisma.user.findUnique({
     where: { email: req.body.email },
@@ -37,10 +36,19 @@ const createUser = async (req: userRequest) => {
     phone: payload.phone,
     gender:  Gender[payload.gender as keyof typeof Gender] ?? null,
     address: payload.address, 
+    role: UserRole.user,
+    status: UserStatus.active,
   }
 
-   const result = await prisma.user.create({ data: userData })
-  return result;
+    const newUser = await prisma.user.create({ data: userData });
+
+ const { accessToken, refreshToken } = generateAuthTokens(newUser);
+
+  return {
+    user: newUser,
+    accessToken,
+    refreshToken,
+  };
 };
 
 //get all Users from database

@@ -1,11 +1,11 @@
 
-import { ref } from "node:process";
 import { UserStatus } from "../../../../generated/prisma";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import AppError from "../../../shared/AppError";
 import { prisma } from "../../../shared/prismaClient";
 import bcrypt from 'bcrypt';
 import config from "../../../config";
+import { generateAuthTokens } from "../../../helpers/tokenGenerator";
 
 const loginUser =  async (payload: {
     email: string,
@@ -31,22 +31,7 @@ const loginUser =  async (payload: {
     throw new AppError(403, 'You have given a wrong password!');
   }
 
-  const accessToken = jwtHelpers.generateToken({
-    email: userData.email,
-    role:userData.role
-  },
-     config.jwt.jwt_secret as string,
-     config.jwt.expires_in as string
-     
-);
-
-const refreshToken = jwtHelpers.generateToken({
-    email: userData.email,
-    role:userData.role
-  },
-    config.jwt.refresh_token_secret as string,
-    config.jwt.refresh_token_expires_in as string
-);
+ const { accessToken, refreshToken } = generateAuthTokens(userData);
 
 return{
   accessToken,
