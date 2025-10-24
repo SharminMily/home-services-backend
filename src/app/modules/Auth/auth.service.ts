@@ -1,4 +1,3 @@
-
 import { UserStatus } from "../../../../generated/prisma";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import AppError from "../../../shared/AppError";
