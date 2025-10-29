@@ -1,13 +1,15 @@
 import { prisma } from "../../../../shared/prismaClient";
 
-const getDistictFromDb = async(id: string) => {
- const result = await prisma.district.findMany({
-    where: {id},
- });
+const getDistrictFromDb = async (divisionId: string) => {
+  const result = await prisma.district.findMany({
+    where: { divisionId },
+    include: {
+      upazilas: true, 
+    },
+  });
+  return result;
+};
 
- return result
-}
-
-export const DistictService = {
-    getDistictFromDb
-}
+export const DistrictService = {
+  getDistrictFromDb,
+};
