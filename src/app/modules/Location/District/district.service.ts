@@ -1,5 +1,16 @@
 import { prisma } from "../../../../shared/prismaClient";
 
+
+
+
+const getAllDistrictFromDb = async() => {
+ const result = prisma.district.findMany();
+
+ return result
+}
+
+
+
 const getDistrictFromDb = async (divisionId: string) => {
   const result = await prisma.district.findMany({
     where: { divisionId },
@@ -12,4 +23,5 @@ const getDistrictFromDb = async (divisionId: string) => {
 
 export const DistrictService = {
   getDistrictFromDb,
+  getAllDistrictFromDb
 };

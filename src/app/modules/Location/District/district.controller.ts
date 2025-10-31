@@ -4,6 +4,21 @@ import httpStatus from "http-status";
 import { DistrictService } from "./district.service";
 
 
+
+const geAllDistrictFromDB = catchAsynce(async (req, res) => {
+
+    const result = await DistrictService.getAllDistrictFromDb()
+    
+    sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "All division get successfully",   
+    data: result,  
+  });
+})
+
+
+
 const getDistrictFromDB = catchAsynce(async (req, res) => {
     const {id} = req.params;
     console.log(req.params)
@@ -20,7 +35,7 @@ const getDistrictFromDB = catchAsynce(async (req, res) => {
   });
 })
 
-
 export const DistrictController = {
     getDistrictFromDB,
+    geAllDistrictFromDB
 }
