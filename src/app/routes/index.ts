@@ -7,6 +7,7 @@ import { LocationRouter } from "../modules/AvailableLocation/location.routers";
 import LocationsRouter from "../modules/Location/location.routers";
 import { DivisionRouter } from "../modules/Location/Division/division.router";
 import { DistrictRouter } from "../modules/Location/District/district.router";
+import { UpazilaRouter } from "../modules/Location/Upazila/upazila.router";
 
 const router = express.Router();
 
@@ -44,10 +45,10 @@ const moduleRoutes =[
         path: "/district",
         route: DistrictRouter
     },
-    // {
-    //     path: "/upazila",
-    //     route: DivisionRouter
-    // },
+    {
+        path: "/upazila",
+        route: UpazilaRouter
+    },
 ]
 
 moduleRoutes.forEach(route => router.use(route.path, route.route));

@@ -12,7 +12,7 @@ const geAllDistrictFromDB = catchAsynce(async (req, res) => {
     sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "All division get successfully",   
+    message: "All district get successfully",   
     data: result,  
   });
 })
