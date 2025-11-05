@@ -15,7 +15,32 @@ const getAllUpazilaFromDb = catchAsynce(async (req, res) => {
   });
 })
 
+const   getUpazilaByDivisionAndDistrict = catchAsynce(async (req, res) => {
+
+
+   const { divisionId, districtId } = req.params;
+   const result = await UpazilaService.getUpazilaByDivisionAndDistrict(divisionId, districtId);
+    
+    if (!result || result.length === 0) {
+      sendResponse(res, {
+    statusCode: httpStatus.NOT_FOUND,
+    success: true,
+    message: "No upazila found for this district",   
+    data: [],  
+  });
+    }
+
+    sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Upazilas fetched successfully",   
+    data: result,  
+  });
+})
+
+
 
 export const UpazilaController = {
-    getAllUpazilaFromDb
+    getAllUpazilaFromDb,
+    getUpazilaByDivisionAndDistrict
 }

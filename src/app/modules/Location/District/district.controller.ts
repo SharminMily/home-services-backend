@@ -26,7 +26,6 @@ const getDistrictFromDB = catchAsynce(async (req, res) => {
 
     const result = await DistrictService.getDistrictFromDb(id)   
     
-    
     sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
