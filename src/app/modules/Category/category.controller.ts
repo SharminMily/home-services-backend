@@ -20,8 +20,7 @@ const getAllCategory = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get All successfully",
-    //meta: result.meta,
+    message: "get All successfully",    
     data: result,
   });
 })
@@ -32,8 +31,7 @@ const getByIdFromDB = catchAsynce(async(req, res)=> {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get by id successfully",
-    //meta: result.meta,
+    message: "get by id successfully",    
     data: result,
   });
 })

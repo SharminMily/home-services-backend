@@ -42,11 +42,11 @@ const moduleRoutes =[
         route: DivisionRouter
     },
     {
-        path: "/district",
+        path: "/districts",
         route: DistrictRouter
     },
     {
-        path: "/upazila",
+        path: "/upazilas",
         route: UpazilaRouter
     },
 ]

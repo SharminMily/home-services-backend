@@ -6,7 +6,6 @@ const getAllUpazilaFromDb = async() => {
  return result
 }
 
-
 const getUpazilaByDivisionAndDistrict = async (divisionId: string, districtId: string) => {
   const result = await prisma.upazila.findMany({
     where: {
@@ -19,7 +18,6 @@ const getUpazilaByDivisionAndDistrict = async (divisionId: string, districtId: s
 
   return result;
 };
-
 
 
 export const UpazilaService = {

@@ -10,7 +10,7 @@ const getAllUpazilaFromDb = catchAsynce(async (req, res) => {
     sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get All Upazila From Db successfully",   
+    message: "get All Upazilas From Db successfully",   
     data: result,  
   });
 })
