@@ -4,7 +4,7 @@ import httpStatus from "http-status";
 
 
 const createBooking = catchAsynce(async(req, res)=> {
-  console.log(req.body)
+  // console.log(req.body)
   const result = await BookingController.createBooking(req.body)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,

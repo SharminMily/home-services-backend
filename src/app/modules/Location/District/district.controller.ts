@@ -21,7 +21,7 @@ const geAllDistrictFromDB = catchAsynce(async (req, res) => {
 
 const getDistrictFromDB = catchAsynce(async (req, res) => {
     const {id} = req.params;
-    console.log(req.params)
+    // console.log(req.params)
     // console.log(JSON.stringify(req.params, null, 2));
 
     const result = await DistrictService.getDistrictFromDb(id)   

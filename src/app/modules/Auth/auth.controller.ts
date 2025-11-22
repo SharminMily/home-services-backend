@@ -5,7 +5,7 @@ import { AuthService } from "./auth.service";
 
 
 const loginUser = catchAsynce(async(req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const result = await AuthService.loginUser(req.body);
 
     const {refreshToken} = result;

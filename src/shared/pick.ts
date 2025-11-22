@@ -7,7 +7,7 @@ export const pick = <T extends Record<string, unknown>, K extends keyof T> (obj:
             finalObj[key] = obj[key]
         }
     }
-    console.log(finalObj)
+    // console.log(finalObj)
     return finalObj;
 }
 

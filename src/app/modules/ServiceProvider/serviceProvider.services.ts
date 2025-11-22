@@ -2,7 +2,7 @@
 import { prisma } from "../../../shared/prismaClient";
 
 const createServiceProvider = async(payload: any) => {
- console.log("Create Service")
+//  console.log("Create Service")
  const result = await prisma.serviceProvider.create({
       data: payload
     });

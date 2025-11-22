@@ -4,7 +4,7 @@ import httpStatus from "http-status";
 import { LocationServices } from "./location.services";
 
 const createLocation = catchAsynce(async(req, res)=> {
-  console.log(req.body)
+  // console.log(req.body)
   const result = await LocationServices.createLocation(req.body)
   sendResponse(res, {
     statusCode: httpStatus.CREATED,

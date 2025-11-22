@@ -36,7 +36,7 @@ const getAllUserFromDB = catchAsynce(async (req, res) => {
 //single User from database
 const getByIdFromDB = catchAsynce(async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  // console.log(id);
   const result = await UserServices.getByIdFromDB(id);
   sendResponse(res, {
     statusCode: httpStatus.OK,

@@ -1,7 +1,7 @@
 import { prisma } from "../../../shared/prismaClient";
 
 const createBooking = async(payload: any) => {
- console.log("create Booking")
+//  console.log("create Booking")
  const result = await prisma.booking.create({
       data: payload
     });

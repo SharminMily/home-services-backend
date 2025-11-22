@@ -3,7 +3,7 @@ import { prisma } from "../../../shared/prismaClient";
 import httpStatus from "http-status";
 
 const createReview = async (payload: any) => {
- console.log("Create review")
+//  console.log("Create review")
  const result = await prisma.review.create({data: payload});
    return result;
 }

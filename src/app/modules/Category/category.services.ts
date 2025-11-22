@@ -9,7 +9,7 @@ const createCategory = async (req: CategoryRequest) => {
   if (file) {
     const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
     req.body.image = uploadToCloudinary?.secure_url;
-    console.log(req.body);
+    // console.log(req.body);
   }
 
   const payload = req.body;
